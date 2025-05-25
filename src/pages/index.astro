@@ -10,7 +10,8 @@ import PostPreview from '@/components/blog/PostPreview.astro'
 import { Image } from 'astro:assets'
 import astro from '../assets/else-where.png'
 
-import { getAllPosts, sortMDByDate } from '@/utils'
+import { sortMDByDate } from '@/utils'
+import { fetchTistoryTopPosts } from '../utils/post'
 
 const languages = ['lorem', 'ipsum']
 const frontend = ['lorem', 'ipsum', 'lorem', 'ipsum', 'lorem', 'ipsum', 'lorem']
@@ -18,8 +19,8 @@ const backend = ['lorem', 'ipsum', 'lorem', 'ipsum']
 const others = ['lorem', 'ipsum', 'lorem', 'ipsum', 'lorem']
 
 const MAX_POSTS = 10
-const allPosts = await getAllPosts()
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+const tistoryPosts = await fetchTistoryTopPosts()
+const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 ---
 
 <PageLayout meta={{ title: 'Home' }}>
@@ -101,7 +102,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 			<p class='text-muted-foreground'>
 				최선을 고민하는 5년차 백엔드 개발자 고형규입니다.<br/>
 				21년도에 창업 실패로 비즈니스와 개발의 필요성을 느낀 뒤, 현재 개발은 직업을 넘어 취미를 붙인 상태입니다.
-				지금은 GS리테일에서 편의점 택배(국내택배, 반값택배)를 운영, 개발하고 있습니다. <br/>
+				지금은 GS리테일에서 편의점 택배(국내택배, 반값택배)를 운영, 개발하고 있습니다.
 				공식 문서와 best practices를 활용하여 개발합니다.
 				과하지 않은 Clean code 그리고 서비스와 규모에 맞게 적정 기술을 사용하는 걸 좋아합니다.
 			</p>

@@ -1,5 +1,31 @@
 import type { CollectionEntry } from 'astro:content'
 import { getCollection } from 'astro:content'
+import { XMLParser } from 'fast-xml-parser'
+
+export async function fetchTistoryTopPosts(limit = 7) {
+	const RSS_URL = 'https://pepega.tistory.com/rss'
+
+	const res = await fetch(RSS_URL)
+	if (!res.ok) throw new Error(`RSS fetch failed: ${res.statusText}`)
+
+	const xml = await res.text()
+
+	const parser = new XMLParser({ ignoreAttributes: false })
+	const json = parser.parse(xml)
+	const items = json.rss?.channel?.item ?? []
+
+	return items.slice(0, limit).map((item: any) => ({
+		slug: item.link.split('/').filter(Boolean).pop() ?? '',
+		data: {
+			title: item.title,
+			link: item.link,
+			description: item.description ?? '',
+			publishDate: new Date(item.pubDate),
+			draft: false,
+			tags: ['Tistory'],
+		},
+	}))
+}
 
 /** Note: this function filters out draft posts based on the environment */
 export async function getAllPosts() {
@@ -32,7 +58,7 @@ export function getUniqueTagsWithCount(
 ): Array<[string, number]> {
 	return [
 		...getAllTags(posts).reduce(
-			(acc, t) => acc.set(t, (acc.get(t) || 0) + 1),
+			(acc, t) => acc.set(t, (acc.get(t) ?? 0) + 1),
 			new Map<string, number>()
 		)
 	].sort((a, b) => b[1] - a[1])
