@@ -4,6 +4,9 @@ dist/
 .astro/
 .vercel/
 
+# IDE
+.idea
+
 # dependencies
 node_modules/
 
