@@ -34,7 +34,7 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 			/>
 
 			<div class='flex flex-col items-center gap-y-4'>
-				<h1 class='text-3xl font-bold'>백엔드 개발자 고형규입니다.</h1>
+				<h1 class='text-3xl font-bold'>창업 경험이 있는 개발자 고형규입니다.</h1>
 				<a
 					href='https://github.com/GHGHGHKO/resume'
 					class='flex flex-row items-center gap-x-3 rounded-3xl border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
@@ -99,13 +99,22 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 		</section>
 
 		<Section title='About'>
-			<p class='text-muted-foreground'>
-				최선을 고민하는 5년차 백엔드 개발자 고형규입니다.<br/>
-				21년도에 창업 실패로 비즈니스와 개발의 필요성을 느낀 뒤, 현재 개발은 직업을 넘어 취미를 붙인 상태입니다.
-				지금은 GS리테일에서 편의점 택배(국내택배, 반값택배)를 운영, 개발하고 있습니다.
-				공식 문서와 best practices를 활용하여 개발합니다.
-				과하지 않은 Clean code 그리고 서비스와 규모에 맞게 적정 기술을 사용하는 걸 좋아합니다.
-			</p>
+			<div class="text-muted-foreground space-y-4">
+				<p>2021년 폐업을 계기로 비즈니스 감각과 개발 역량의 중요성을 절실히 느낀 후, 새로운 도전을 위해 백엔드 개발자의 길을 걷기 시작했습니다.</p>
+
+				<p><strong>GS리테일</strong>에서는 백엔드 개발자로 근무하며 처음에는 약 5개 제휴사의 운영 업무를 담당했습니다.
+					이후 30개 이상의 제휴사를 대상으로 운영 및 신규 제휴를 이끌며, <strong>반값택배</strong> 및 <strong>국내택배</strong> 물량을 지속적으로 성장시켰습니다.</p>
+
+				<p>비즈니스 확장에 따라 증가하는 업무를 안정적이고 민첩하게 처리하기 위해 <strong>Airflow</strong>를 도입했으며,
+					이를 통해 주간 평균 20건 이상 발생하던 운영 오류를 <strong>2건 이하</strong>로 크게 줄인 경험이 있습니다.</p>
+
+				<p><strong>CUD 기반 Datadog 대시보드</strong>를 구축하여 현업 사용자가 데이터를 능동적으로 활용할 수 있도록 가이드를 제공한 경험이 있습니다.
+					이를 통해 현업의 민첩한 의사결정을 지원했습니다.</p>
+
+				<p>공식 문서와 <strong>Best Practices</strong>를 기반으로 개발하며,
+					과하지 않은 <strong>Clean Code</strong>와 서비스 규모에 맞는 <strong>적정 기술</strong>의 사용을 지향합니다.</p>
+			</div>
+
 		</Section>
 		{
 			allPostsByDate.length > 0 && (
@@ -132,17 +141,18 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 			>
 				<ul class='ml-4 list-disc text-muted-foreground'>
 					<li>택배 시스템 개발 및 운영</li>
-					<li>대한통운, 네이버, 토스, 당근 등 40개의 제휴사 담당 및 신규 제휴</li>
-					<li>편의점 택배 웹 백엔드를 우리동네GS 이관 프로젝트 수행</li>
-					<li>EDB - Aurora PostgreSQL ANSI SQL migration</li>
+					<li>대한통운, 네이버, 토스, 당근 등 30개의 제휴사 담당 및 신규 제휴</li>
+					<li>편의점 택배 서비스를 내재화 하기 위해 우리동네GS 서비스로 이관 주도 경험</li>
+					<li>EDB - Aurora PostgreSQL ANSI SQL migration하여 IDC -> AWS 이관</li>
 					<li>Datadog 로그 수집 적용 및 개인정보 핸들링하여 로그 보안 강화</li>
-					<li>Onprem airflow - MWAA migration (배치 오류 80% 절감)</li>
-					<li>DB EAI 제거</li>
+					<li>Onprem airflow - MWAA migration 배치 오류 80% 절감 및 dags 제거하여 비용 20% 최적화</li>
+					<li>DB EAI 제거하여 DB lock 제거 및 vCPU 사용량 감소, 운영 복잡도 감소</li>
+					<li>제휴 API, Batch(Airflow) 서비스의 CI/CD 자동화로 비효율 반복 작업 제거</li>
 				</ul>
 			</Card>
 			<Card
 				heading='GS 네트웍스'
-				subheading='Sit amet consectetur'
+				subheading='시스템파트 | 매니저 | 백엔드'
 				date='Aug 2021 - Oct 2022'
 				imagePath='/src/assets/logo_gs_lg-removebg-preview.png'
 				altText='Lorem, ipsum dolor sit'
@@ -150,58 +160,73 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 			>
 				<ul class='ml-4 list-disc text-muted-foreground'>
 					<li>택배 시스템 개발 및 운영</li>
-					<li>대한통운, 네이버, 토스, 당근 등 40개의 제휴사 담당 및 신규 제휴</li>
-					<li>Airflow 학습하여 onprem k8s 기반의 Airflow 운영</li>
-					<li>IDC to IDC 차세대 프로젝트 오픈 경험</li>
-					<li>flashback 쿼리를 사용하여 장애 해결 경험</li>
-					<li>배송조회 API 개선 (70% 오류 감소로 오류 탐지 복잡도 개선)</li>
+					<li>Airflow 학습하여 onprem k8s 기반의 Airflow 이관 및 운영</li>
+					<li>IDC -> IDC 차세대 프로젝트 오픈 경험</li>
+					<li>flashback 쿼리를 사용하여 update 쿼리 장애 해결 경험</li>
+					<li>배송조회 API 캐시 도입, 제휴사 API 버전 변경 (70% 오류 감소로 오류 탐지 복잡도 개선)</li>
+				</ul>
+			</Card>
+			<Card
+				heading='마인드패스'
+				subheading='대표 | PM'
+				date='Dec 2018 - Jan 2021'
+				altText='Lorem, ipsum dolor sit'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>2명의 대학교 동기와 창업</li>
+					<li>GoogleNet 기반의 한국어 독화 MVP 제작 및 5,000만원 투자 수혜 (기술혁신형창업기업지원사업, 기술보증기금)</li>
+					<li>위치 기반 메모 알람 서비스 애플리케이션 제작 및 3,000만원 투자 수혜 (맞춤형성장지원프로그램, 대전TP)</li>
+					<li>GoogleNet 기반의 의류 분류 모델 MVP 제작 및 GPU 20TFlops 대여 수혜</li>
+					<li>치매환자 낙상 방지 시스템 MVP 개발 및 건대 병원 파일럿 테스트 (특허 등록 지원)</li>
+					<li>DJI framework 기반의 Robomaster S1 컨텐츠 개발</li>
+					<li>CMS(강의 웹사이트) Backoffice RESTful API 개발</li>
 				</ul>
 			</Card>
 		</Section>
 
 		<Section title='Education'>
 			<Card
-				heading='Lorem Ipsum'
-				subheading='Sit amet consectetur'
-				date='Dec 2022 - Nov 2023'
-				imagePath='/src/assets/about-astro.png'
+				heading='건국대학교 글로컬캠퍼스'
+				subheading='졸업 | 학사 | 컴퓨터공학과 '
+				date='Mar 2014 - Feb 2021'
+				imagePath='/src/assets/signature-logo_large-removebg-preview.png'
 				altText='Lorem, ipsum dolor sit'
-				imageClass='h-12 w-auto md:-left-16'
+				imageClass='h-16 w-auto md:-left-24'
 			>
 				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-						molestiae laboriosam pariatur!</li>
-
-						<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-
+					<li>교내 서버관리자 업무 수행 및 학과 내 실습서버 구축 및 관리 (Ubuntu)</li>
+					<li>관리되지 않던 학교 BareMetal을 Ubuntu로 변경하여 학교 실습서버 구축</li>
+					<li>Windows server 실습 컴퓨터 유지보수 및 switch looping 개선</li>
+					<li>마인드패스 창업</li>
 				</ul>
 			</Card>
 			<Card
-				heading='Lorem Ipsum'
-				subheading='Sit amet consectetur'
-				date='Dec 2022 - Nov 2023'
-				imagePath='/src/assets/about-astro.png'
+				heading='대헌공업고등학교'
+				subheading='졸업 | 정보통신과'
+				date='Mar 2011 - Feb 2014'
 				altText='Lorem, ipsum dolor sit'
-				imageClass='h-12 w-auto md:-left-16'
-			/>
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>C, AVR 기반의 모바일로보틱스를 활용한 기능경진대회 출전</li>
+				</ul>
+			</Card>
 		</Section>
 
-		<Section title='Projects'>
+		<Section title='Personal Projects'>
 			<div class='flex flex-col gap-y-3 sm:flex-row sm:gap-x-3 sm:gap-y-0'>
 				<ProjectCard
-					href='https://www.google.com'
-					heading='Consectetur'
-					subheading='Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-					imagePath='/src/assets/coming-soon.png'
+					href='https://github.com/tauri-apps/awesome-tauri/pull/204'
+					heading='tauri-app/awesome-tauri contribution'
+					subheading='GIF meme finder app for Windows and macOS.'
+					imagePath='/src/assets/tauri-images.png'
 					altText='Example'
 					class='w-full sm:w-1/2'
 				/>
 				<ProjectCard
-					as='div'
-					heading='Coming soon...'
-					subheading=''
-					imagePath='/src/assets/coming-soon.png'
+					href='https://ghghghko.github.io/upptime/'
+					heading='GHGHGHKO/upptime'
+					subheading='Self-hosted API 서버 모니터링 서비스입니다. Live Status 서버들은 직접 만든거에요.'
+					imagePath='/src/assets/upptime-logo.png'
 					altText='Lorem, ipsum dolor sit'
 					class='w-full sm:w-1/2'
 				/>
