@@ -26,6 +26,12 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 <PageLayout meta={{ title: 'Home' }}>
 	<div class='flex w-full flex-col gap-y-10'>
 		<section class='flex flex-col items-center gap-y-7'>
+			<Image
+				src={astro}
+				alt='profile photo'
+				class='h-36 w-auto rounded-full'
+				loading='eager'
+			/>
 
 			<div class='flex flex-col items-center gap-y-4'>
 				<h1 class='text-3xl font-bold'>창업 경험 기반, 비즈니스 성과를 만드는 개발자 고형규입니다.</h1>
