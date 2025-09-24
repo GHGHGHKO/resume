@@ -199,15 +199,79 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 				altText='Lorem, ipsum dolor sit'
 				imageClass='h-12 w-auto md:-left-28'
 			>
-				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>택배 시스템 개발 및 운영</li>
-					<li>대한통운, 네이버, 토스, 당근 등 30개의 제휴사 담당 및 신규 제휴</li>
-					<li>편의점 택배 서비스를 내재화 하기 위해 우리동네GS 서비스로 이관 주도 경험</li>
-					<li>EDB - Aurora PostgreSQL ANSI SQL migration하여 IDC -> AWS 이관</li>
-					<li>Datadog 로그 수집 적용 및 개인정보 핸들링하여 로그 보안 강화</li>
-					<li>Onprem airflow - MWAA migration 배치 오류 80% 절감 및 dags 제거하여 비용 20% 최적화</li>
-					<li>DB EAI 제거하여 DB lock 제거 및 vCPU 사용량 감소, 운영 복잡도 감소</li>
-					<li>제휴 API, Batch(Airflow) 서비스의 CI/CD 자동화로 비효율 반복 작업 제거</li>
+				<ul class='ml-4 list-disc text-muted-foreground space-y-4'>
+					<li>
+						<b>택배 시스템 RESTful API 개발 및 운영</b>
+						<ul class="ml-6 list-disc">
+							<li>AWS EKS & IaC 환경에서 대규모 API 운영</li>
+							<li>네이버, 토스, 당근, CJ대한통운 등 주요 파트너사 연동</li>
+							<li>월 처리량 1,000건 → 10,000건 확장</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>홈페이지 → 우리동네GS 앱 마이그레이션</b>
+						<ul class="ml-6 list-disc">
+							<li>E-Gov 기반 기능을 API로 이전, 데이터 정합성 확보 (PK Sequence 적용)</li>
+							<li>JWT 기반 자동 로그인(세션 클러스터링)으로 UX 개선</li>
+							<li>필리핀 오프쇼어 개발팀과 협업 및 코드 리뷰 진행</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>대한통운 연동 고도화</b>
+						<ul class="ml-6 list-disc">
+							<li>FTP 기반 파일 처리 → 실시간 API 전환</li>
+							<li>테스트 및 운영 효율성 증대</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>EDB → Aurora PostgreSQL 마이그레이션 (IDC → Cloud)</b>
+						<ul class="ml-6 list-disc">
+							<li>이기종 EDB를 Aurora PostgreSQL로 통합, 유지보수 비용 절감</li>
+							<li>비표준 쿼리 → ANSI SQL 변환으로 DBMS 확장성 확보</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>On-prem K8s Airflow → MWAA 전환</b>
+						<ul class="ml-6 list-disc">
+							<li>Retry & SNS 적용으로 장애 80% 절감</li>
+							<li>Spring Batch v3 → v5, Java 11 → Java 21 업그레이드</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>알림톡 에이전트 EC2 마이그레이션</b>
+						<ul class="ml-6 list-disc">
+							<li>에이전트 8개 → 4개, DB 테이블 16개 → 8개 통합</li>
+							<li>운영 자원 절감 및 유지보수 단순화</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>로깅 및 모니터링 개선 (IaC)</b>
+						<ul class="ml-6 list-disc">
+							<li>Datadog 로그 수집 및 개인정보 보호 처리</li>
+							<li>CUD 중심 로깅으로 대시보드/이슈 추적 강화</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>버전 관리 & 협업</b>
+						<ul class="ml-6 list-disc">
+							<li>Git rebase, squash 기반 전략으로 협업 체계화</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>장애 대응 사례</b>
+						<ul class="ml-6 list-disc">
+							<li>중복 결제 데이터 수신 문제 해결 (Optional 조회 오류 → Update 쿼리 개선)</li>
+							<li>타겟 테이블 변경 및 EAI 경로 제거로 재발 방지</li>
+						</ul>
+					</li>
 				</ul>
 			</Card>
 			<Card
@@ -218,12 +282,42 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 				altText='Lorem, ipsum dolor sit'
 				imageClass='h-12 w-auto md:-left-28'
 			>
-				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>택배 시스템 개발 및 운영</li>
-					<li>Airflow 학습하여 onprem k8s 기반의 Airflow 이관 및 운영</li>
-					<li>IDC -> IDC 차세대 프로젝트 오픈 경험</li>
-					<li>flashback 쿼리를 사용하여 update 쿼리 장애 해결 경험</li>
-					<li>배송조회 API 캐시 도입, 제휴사 API 버전 변경 (70% 오류 감소로 오류 탐지 복잡도 개선)</li>
+				<ul class='ml-4 list-disc text-muted-foreground space-y-4'>
+					<li>
+						<b>Spring Boot Scheduler & Shell Script → Airflow 전환 (IDC → IDC)</b>
+						<ul class="ml-6 list-disc">
+							<li>Airflow 마이그레이션 작업 주도</li>
+							<li>KubernetesPodOperator 기반 시스템 구성</li>
+							<li>약 250개 DAG 운영</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>대한통운 배송조회 API 버전 업그레이드</b>
+						<ul class="ml-6 list-disc">
+							<li>API Cache 및 Retryable 적용</li>
+							<li>과거 Timeout 문제 개선으로 APM 오류 감소</li>
+							<li>오류 탐지 복잡도 개선</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>장애 처리 경험</b>
+						<ul class="ml-6 list-disc">
+							<li>
+								<u>Oracle 테이블 스페이스 가득 참</u><br />
+								- 편의점 택배 결제가 차단됨<br />
+								- <i>일시 해결:</i> 테이블 스페이스 증량 후 데이터 재수신<br />
+								- <i>근본 해결:</i> IDC 환경에서 클라우드로 이관
+							</li>
+							<li>
+								<u>운임 전체 변경 오류</u><br />
+								- 운임 수정 중 쿼리 실수로 운임 데이터 전체 변경<br />
+								- <i>일시 해결:</i> Flashback 쿼리로 원복 및 초과 과금 고객 보상<br />
+								- <i>근본 해결:</i> 운임 변경 전용 시스템 도입
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</Card>
 			<Card
@@ -234,14 +328,38 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 				altText='Lorem, ipsum dolor sit'
 				imageClass='h-7 w-auto md:-left-28'
 			>
-				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>2명의 대학교 동기와 창업</li>
-					<li>GoogleNet 기반의 한국어 독화 MVP 제작 및 5,000만원 투자 수혜 (기술혁신형창업기업지원사업, 기술보증기금)</li>
-					<li>위치 기반 메모 알람 서비스 애플리케이션 제작 및 3,000만원 투자 수혜 (맞춤형성장지원프로그램, 대전TP)</li>
-					<li>GoogleNet 기반의 의류 분류 모델 MVP 제작 및 GPU 20TFlops 대여 수혜</li>
-					<li>치매환자 낙상 방지 시스템 MVP 개발 및 건대 병원 파일럿 테스트 (특허 등록 지원)</li>
-					<li>DJI framework 기반의 Robomaster S1 컨텐츠 개발</li>
-					<li>CMS(강의 웹사이트) Backoffice RESTful API 개발</li>
+				<ul class='ml-4 list-disc text-muted-foreground space-y-4'>
+					<li>
+						<b>창업 및 초기 활동</b>
+						<ul class="ml-6 list-disc">
+							<li>대학교 동기 2명과 공동 창업</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>AI 기반 프로젝트</b>
+						<ul class="ml-6 list-disc">
+							<li>GoogleNet 기반 한국어 독화 MVP 제작</li>
+							<li>GoogleNet 기반 의류 분류 모델 MVP 제작 및 GPU 20TFlops 대여 수혜</li>
+							<li>치매 환자 낙상 방지 시스템 MVP 개발 → 건대 병원 파일럿 테스트 (특허 등록 지원)</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>투자 및 지원 수혜</b>
+						<ul class="ml-6 list-disc">
+							<li>5,000만원 투자 수혜 (기술혁신형창업기업지원사업, 기술보증기금)</li>
+							<li>3,000만원 투자 수혜 (위치 기반 메모 알람 서비스, 맞춤형성장지원프로그램, 대전TP)</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>기타 프로젝트</b>
+						<ul class="ml-6 list-disc">
+							<li>DJI Framework 기반 Robomaster S1 콘텐츠 개발</li>
+							<li>CMS(강의 웹사이트) Backoffice RESTful API 개발</li>
+						</ul>
+					</li>
 				</ul>
 			</Card>
 			<Card
@@ -267,12 +385,25 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 				altText='Lorem, ipsum dolor sit'
 				imageClass='h-16 w-auto md:-left-20'
 			>
-				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>교내 서버관리자 업무 수행 및 학과 내 실습서버 구축 및 관리 (Ubuntu)</li>
-					<li>관리되지 않던 학교 BareMetal을 Ubuntu로 변경하여 학교 실습서버 구축</li>
-					<li>Windows server 실습 컴퓨터 유지보수 및 switch looping 개선</li>
-					<li>마인드패스 창업</li>
+				<ul class='ml-4 list-disc text-muted-foreground space-y-4'>
+					<li>
+						<b>교내 서버 및 인프라 관리</b>
+						<ul class="ml-6 list-disc">
+							<li>교내 서버 관리자 업무 수행 및 학과 실습 서버(Ubuntu) 구축·운영</li>
+							<li>관리되지 않던 BareMetal 서버를 Ubuntu로 전환하여 실습 서버 환경 개선</li>
+							<li>Windows Server 기반 실습 PC 유지보수 및 Switch Looping 문제 해결</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>창업 및 프로젝트</b>
+						<ul class="ml-6 list-disc">
+							<li>마인드패스 창업</li>
+							<li>Raspberry Pi 기반 치매 환자 낙상 방지 시스템 MVP 제작 → 건국대학교 병원 테스트 진행</li>
+						</ul>
+					</li>
 				</ul>
+
 			</Card>
 			<Card
 				heading='대헌공업고등학교'
