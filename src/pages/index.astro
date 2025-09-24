@@ -251,6 +251,14 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 					</li>
 
 					<li>
+						<b>SpringEvent 기반 이벤트 처리 도입</b>
+						<ul class="ml-6 list-disc">
+							<li>TransactionalEventListener 기반 이벤트 발송 구조로 알림톡 처리 개선</li>
+							<li>트랜잭션 종료 시점에 안정적으로 발송되도록 구조화하여 중복·실패 케이스 감소</li>
+						</ul>
+					</li>
+
+					<li>
 						<b>로깅 및 모니터링 개선 (IaC)</b>
 						<ul class="ml-6 list-disc">
 							<li>Datadog 로그 수집 및 개인정보 보호 처리</li>
