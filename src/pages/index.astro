@@ -34,7 +34,7 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 			/>
 
 			<div class='flex flex-col items-center gap-y-4'>
-				<h1 class='text-3xl font-bold'>창업 경험 기반, 비즈니스 성과를 만드는 개발자 고형규입니다.</h1>
+				<h1 class='text-3xl font-bold'>기술로 비용을 줄이고 가치를 키우는 개발자 고형규입니다.</h1>
 				<a
 					href='https://github.com/GHGHGHKO/resume'
 					class='flex flex-row items-center gap-x-3 rounded-3xl border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
@@ -107,17 +107,74 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 
 				<p><strong>GS리테일</strong>에서는 백엔드 개발자로 근무하며 처음에는 약 5개 제휴사의 운영 업무를 담당했습니다.
 					이후 30개 이상의 제휴사를 대상으로 운영 및 신규 제휴를 이끌며, <strong>반값택배</strong> 및 <strong>국내택배</strong> 물량을 지속적으로 성장시켰습니다.</p>
-
-				<p>비즈니스 확장에 따라 증가하는 업무를 안정적이고 민첩하게 처리하기 위해 <strong>Airflow</strong>를 도입했으며,
-					이를 통해 주간 평균 20건 이상 발생하던 운영 오류를 <strong>2건 이하</strong>로 크게 줄인 경험이 있습니다.</p>
-
-				<p><strong>CUD 기반 Datadog 대시보드</strong>를 구축하여 현업 사용자가 데이터를 능동적으로 활용할 수 있도록 가이드를 제공한 경험이 있습니다.
-					이를 통해 현업의 민첩한 의사결정을 지원했습니다.</p>
-
-				<p>공식 문서와 <strong>Best Practices</strong>를 기반으로 개발하며,
-					과하지 않은 <strong>Clean Code</strong>와 서비스 규모에 맞는 <strong>적정 기술</strong>의 사용을 지향합니다.</p>
 			</div>
 
+		</Section>
+		<Section title='TL;DR'>
+			<Card
+				heading='💰 비용 절감'
+				imageClass='h-12 w-auto md:-left-28'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>IDC → 클라우드 전환으로 연 5억 → 2억, 택배 서비스가 적자에서 흑자로 전환</li>
+				</ul>
+			</Card>
+			<Card
+				heading='🔒 보안'
+				imageClass='h-12 w-auto md:-left-28'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>API 접근 권한 체계 구축  </li>
+					<li>세션 기반 → RSA(KMS) 기반 JWT 전환 (우리동네GS 앱 및 18,000대 택배장비)</li>
+					<li>jwt subject 암호화를 위해 KMS(AES) 기반 암복호화 적용</li>
+				</ul>
+			</Card>
+			<Card
+				heading='🏗️ 아키텍처'
+				imageClass='h-12 w-auto md:-left-28'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>UseCase 기반의 헥사고널 아키텍처 적용</li>
+					<li>높은 응집도와 낮은 결합도를 유도하여 확장성과 유지보수성 강화</li>
+				</ul>
+			</Card>
+			<Card
+				heading='🚀 대규모 트래픽 대응'
+				imageClass='h-12 w-auto md:-left-28'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>캐시와 Retry로 장애 없는 <strong>10만 TPS</strong> 배송조회 개발(JMeter)</li>
+					<li>Max+1 문제를 Table sequence 추가하여 개선</li>
+				</ul>
+			</Card>
+			<Card
+				heading='⚙️ 운영 효율화'
+				imageClass='h-12 w-auto md:-left-28'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>Shell Script(crontab) + Scheduled Spring Boot(daemonSet) → K8s Airflow 전환</li>
+					<li>하루 3회 이상 발생하던 배치 장애 제거</li>
+					<li>중단 배포였던 Scheduled Spring Boot → Spring Batch + Airflow로 개선</li>
+				</ul>
+			</Card>
+			<Card
+				heading='🎓 초기 경험'
+				imageClass='h-12 w-auto md:-left-28'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>CentOS → Ubuntu BareMetal 전환, 메일·실습 서버 구축</li>
+					<li>약 90명 학생의 배포 지원 경험</li>
+					<li>이 과정에서 Docker 필요성 체감</li>
+				</ul>
+			</Card>
+			<Card
+				heading='🛠️ 주요 스택'
+				imageClass='h-12 w-auto md:-left-28'
+			>
+				<ul class='ml-4 list-disc text-muted-foreground'>
+					<li>Spring Boot 3.5.x (Batch), Java 21, Airflow (K8s), K8s(Docker)</li>
+				</ul>
+			</Card>
 		</Section>
 		{
 			allPostsByDate.length > 0 && (
