@@ -34,7 +34,7 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 			/>
 
 			<div class='flex flex-col items-center gap-y-4'>
-				<h1 class='text-3xl font-bold'>기술로 비용을 줄이고 가치를 키우는 개발자 고형규입니다.</h1>
+				<h1 class='text-3xl font-bold'>기술로 비용을 절감하고 구조를 혁신하는 백엔드 엔지니어 고형규입니다.</h1>
 				<a
 					href='https://github.com/GHGHGHKO/resume'
 					class='flex flex-row items-center gap-x-3 rounded-3xl border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md'
@@ -103,10 +103,23 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 
 		<Section title='About'>
 			<div class="text-muted-foreground space-y-4">
-				<p>2021년 폐업을 계기로 비즈니스 감각과 개발 역량의 중요성을 절실히 느낀 후, 새로운 도전을 위해 백엔드 개발자의 길을 걷기 시작했습니다. 지금은 5년차 백엔드 개발자 입니다.</p>
-
-				<p><strong>GS리테일</strong>에서는 백엔드 개발자로 근무하며 처음에는 약 5개 제휴사의 운영 업무를 담당했습니다.
-					이후 30개 이상의 제휴사를 대상으로 운영 및 신규 제휴를 이끌며, <strong>반값택배</strong> 및 <strong>국내택배</strong> 물량을 지속적으로 성장시켰습니다.</p>
+				<p>
+					대규모 물류 시스템을 운영하며 <strong>IDC → 클라우드 전환</strong>으로
+					<strong>연 3억 원 이상</strong> 비용을 절감하고, 적자이던 택배 서비스를 <strong>흑자</strong>로 전환시킨 백엔드 개발자입니다.
+				</p>
+				<p>
+					<strong>UseCase 기반 헥사고널 아키텍처</strong>로 높은 응집도와 확장성을 확보했고,
+					<strong>10만 TPS 배송조회</strong>를 안정적으로 처리하는 시스템을 구축했습니다.
+				</p>
+				<p>
+					<strong>RSA(KMS) 기반 JWT 보안 구조</strong>를 도입해 <strong>18,000대 단말</strong>과 앱의 인증 체계를 개선했으며,
+				</p>
+				<p>
+					<strong>Airflow 기반 배치 전환</strong>으로 매일 반복되던 장애를 제거했습니다.
+				</p>
+				<p>
+					<strong>비용 절감</strong>, <strong>아키텍처 고도화</strong>, <strong>보안 강화</strong>, <strong>운영 자동화</strong>의 네 축에서 지속적인 개선을 이끌어왔습니다.
+				</p>
 			</div>
 
 		</Section>
@@ -116,7 +129,10 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 				imageClass='h-12 w-auto md:-left-28'
 			>
 				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>IDC → 클라우드 전환으로 연 5억 → 2억, 택배 서비스가 적자에서 흑자로 전환</li>
+					<li>IDC → 클라우드 전환으로 연 5억 → 2억 절감, 택배 서비스 적자에서 흑자 전환</li>
+					<li>32코어 DB 2대를 1대로 통합하고, Enterprise PostgreSQL → Aurora DB 전환</li>
+					<li>270개 DAG → 180개로 경량화, EAI 제거 및 알림톡 에이전트 16→8개 축소</li>
+					<li>Backup DB를 32코어 → 16코어로 조정하여 불필요한 자원 사용 최소화</li>
 				</ul>
 			</Card>
 			<Card
