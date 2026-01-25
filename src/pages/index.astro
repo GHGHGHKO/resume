@@ -16,7 +16,18 @@ import { fetchTistoryTopPosts } from '../utils/post'
 const languages = ['java', 'kotlin', 'python', 'sql']
 const frontend = ['typescript', 'tauri']
 const backend = ['spring-boot', 'spring-batch', 'jpa']
-const others = ['airflow', 'kubernetes', 'docker', 'postgres', 'valkey', 'git', 'ci/cd', 'datadog', 'aws', 'self-hosted']
+const others = [
+	'airflow',
+	'kubernetes',
+	'docker',
+	'postgres',
+	'valkey',
+	'git',
+	'ci/cd',
+	'datadog',
+	'aws',
+	'self-hosted'
+]
 
 const MAX_POSTS = 10
 const tistoryPosts = await fetchTistoryTopPosts()
@@ -26,37 +37,31 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 <PageLayout meta={{ title: 'Home' }}>
 	<div class='flex w-full flex-col gap-y-10'>
 		<section class='flex flex-col items-center gap-y-7'>
-			<Image
-				src={astro}
-				alt='profile photo'
-				class='h-36 w-auto rounded-full'
-				loading='eager'
-			/>
+			<Image src={astro} alt='profile photo' class='h-36 w-auto rounded-full' loading='eager' />
 
 			<div class='flex flex-col items-center gap-y-4'>
-				<h1 class='text-3xl font-bold'>물류·택배 시스템을 운영하며 인증, 배치를 개선해 온 백엔드 엔지니어 고형규입니다.</h1>
+				<h1 class='text-3xl font-bold'>
+					물류·택배 시스템을 운영하며 인증, 배치를 개선해 온 백엔드 엔지니어 고형규입니다.
+				</h1>
 				<div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
 					<Label title='GS 리테일'>
-						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-5 w-5' slot='icon'
-						><path
-							fill='currentColor'
-							d='M4.615 20q-.69 0-1.152-.462Q3 19.075 3 18.385v-9.77q0-.69.463-1.152Q3.925 7 4.615 7H9V5.615q0-.69.463-1.152Q9.925 4 10.615 4h2.77q.69 0 1.153.463q.462.462.462 1.152V7h4.385q.69 0 1.152.463q.463.462.463 1.152v9.77q0 .69-.462 1.152q-.463.463-1.153.463zm0-1h14.77q.23 0 .423-.192q.192-.193.192-.423v-9.77q0-.23-.192-.423Q19.615 8 19.385 8H4.615q-.23 0-.423.192Q4 8.385 4 8.615v9.77q0 .23.192.423q.193.192.423.192M10 7h4V5.615q0-.23-.192-.423Q13.615 5 13.385 5h-2.77q-.23 0-.423.192q-.192.193-.192.423zM4 19V8z'
-						></path></svg
-						>
-					</Label>
-					<Label
-						title='GitHub'
-						as='a'
-						href='https://github.com/GHGHGHKO'
-						target='_blank'>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 16 16"
-							slot="icon"
-							class="h-5 w-5 text-foreground/75">
+						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-5 w-5' slot='icon'>
 							<path
-								fill="currentColor"
-								d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13 -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07 -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.548 7.548 0 0 1 2-.27c.68.003 1.36.092 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.001 8.001 0 0 0 16 8 c0-4.42-3.58-8-8-8z"
+								fill='currentColor'
+								d='M4.615 20q-.69 0-1.152-.462Q3 19.075 3 18.385v-9.77q0-.69.463-1.152Q3.925 7 4.615 7H9V5.615q0-.69.463-1.152Q9.925 4 10.615 4h2.77q.69 0 1.153.463q.462.462.462 1.152V7h4.385q.69 0 1.152.463q.463.462.463 1.152v9.77q0 .69-.462 1.152q-.463.463-1.153.463zm0-1h14.77q.23 0 .423-.192q.192-.193.192-.423v-9.77q0-.23-.192-.423Q19.615 8 19.385 8H4.615q-.23 0-.423.192Q4 8.385 4 8.615v9.77q0 .23.192.423q.193.192.423.192M10 7h4V5.615q0-.23-.192-.423Q13.615 5 13.385 5h-2.77q-.23 0-.423.192q-.192.193-.192.423zM4 19V8z'
+							></path>
+						</svg>
+					</Label>
+					<Label title='GitHub' as='a' href='https://github.com/GHGHGHKO' target='_blank'>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							viewBox='0 0 16 16'
+							slot='icon'
+							class='h-5 w-5 text-foreground/75'
+						>
+							<path
+								fill='currentColor'
+								d='M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13 -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07 -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.548 7.548 0 0 1 2-.27c.68.003 1.36.092 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.001 8.001 0 0 0 16 8 c0-4.42-3.58-8-8-8z'
 							></path>
 						</svg>
 					</Label>
@@ -64,24 +69,34 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 						title='Instagram'
 						as='a'
 						href='https://www.instagram.com/hg____ko/'
-						target='_blank'>
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" slot="icon">
-							<rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" fill="none" stroke-width="1.5"/>
-							<circle cx="12" cy="12" r="3.5" stroke="currentColor" fill="none" stroke-width="1.5"/>
-							<circle cx="17" cy="7" r="1" fill="currentColor"/>
+						target='_blank'
+					>
+						<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='h-5 w-5' slot='icon'>
+							<rect
+								x='3'
+								y='3'
+								width='18'
+								height='18'
+								rx='5'
+								stroke='currentColor'
+								fill='none'
+								stroke-width='1.5'></rect>
+							<circle cx='12' cy='12' r='3.5' stroke='currentColor' fill='none' stroke-width='1.5'
+							></circle>
+							<circle cx='17' cy='7' r='1' fill='currentColor'></circle>
 						</svg>
 					</Label>
 					<Label title='gudrb963@gmail.com'>
 						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							slot="icon"
-							class="h-5 w-5 text-foreground/75"
+							xmlns='http://www.w3.org/2000/svg'
+							viewBox='0 0 24 24'
+							slot='icon'
+							class='h-5 w-5 text-foreground/75'
 						>
 							<path
-								fill="currentColor"
-								d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z"
-							/>
+								fill='currentColor'
+								d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8l8 5 8-5v10H4z'
+							></path>
 						</svg>
 					</Label>
 				</div>
@@ -89,69 +104,65 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 		</section>
 
 		<Section title='About'>
-			<div class="text-muted-foreground space-y-4">
+			<div class='space-y-4 text-muted-foreground'>
 				<p>
-					물류·택배 시스템에서 인증, 배치, 데이터베이스, 모니터링 영역을 주로 담당해 왔습니다.
-					시스템 확장과 함께 증가하는 운영 비용과 장애 대응 부담을 줄이는 개선 작업을 수행했습니다.
+					물류·택배 서비스에서 백엔드를 개발하고 운영해 왔습니다. 제가 일을 할 때 가장 크게 보는
+					기준은 “서비스가 멈추지 않게 만드는 것(가용성)”입니다.
 				</p>
 
 				<p>
-					세션 클러스터링 기반 인증 구조의 확장 한계를 해결하기 위해
-					RSA(KMS) 기반 JWT 인증을 도입했고,
-					전국 약 18,000대 단말과 우리동네GS 앱 인증 구조를 정리했습니다.
+					인증은 세션 클러스터링 방식의 한계를 겪으면서, RSA(KMS) 기반 JWT로 점진 전환했습니다. 단말
+					수가 늘어도 인증 흐름이 흔들리지 않게 만드는 쪽에 초점을 맞췄습니다.
 				</p>
 
 				<p>
-					IDC 환경을 AWS로 전환하며 DB 마이그레이션과 배치 구조 정리를 진행했고,
-					운영 비용 절감과 장애 대응 시간 단축에 기여했습니다.
-					Datadog APM과 로그를 활용해 운영 이슈를 빠르게 확인할 수 있는 환경을 구성했습니다.
+					인프라 쪽은 IDC 환경에서 AWS로 넘어가는 과정을 겪었고, DB 마이그레이션과 배치 구조 정리도
+					같이 했습니다. 배포나 장애 대응이 특정 작업자에게 의존하지 않도록 구조를 정리하는 걸
+					선호합니다.
+				</p>
+
+				<p>
+					운영 중 이슈는 Datadog 로그/APM으로 빠르게 잡고, 임시 처방보다는 “다음에 같은 일이 안
+					나게” 정리하는 방식으로 해결해 왔습니다.
 				</p>
 			</div>
 		</Section>
 
 		<Section title='TL;DR'>
-			<Card
-				heading='💰 비용 절감'
-				imageClass='h-12 w-auto md:-left-28'
-			>
+			<Card heading='💰 비용 / 구조 정리' imageClass='h-12 w-auto md:-left-28'>
 				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>EDB → Aurora PostgreSQL 마이그레이션</li>
-					<li>Airflow DAG 270개 → 180개 정리</li>
-					<li>알림톡 에이전트 16개 → 8개 통합</li>
-					<li>IDC → AWS 전환으로 연 운영비 5억 → 2억 수준으로 감소 기여</li>
+					<li>EDB → Aurora PostgreSQL 전환(쿼리/운영 포인트 정리 포함)</li>
+					<li>Airflow DAG 정리 및 스케줄 통합 (270 → 180)</li>
+					<li>알림톡 에이전트/테이블 통합 (16 → 8)</li>
+					<li>IDC → AWS 전환 과정에서 운영비와 장애 대응 부담을 낮추는 방향으로 정비</li>
 				</ul>
 			</Card>
-			<Card
-				heading='🔒 보안'
-				imageClass='h-12 w-auto md:-left-28'
-			>
+
+			<Card heading='🔒 인증 / 보안' imageClass='h-12 w-auto md:-left-28'>
 				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>세션 클러스터링 기반 인증 구조를 JWT로 점진적 변경</li>
-					<li>RSA(KMS) 기반 JWT 인증 도입</li>
-					<li>단말 및 모바일 앱 인증 구조 통합</li>
+					<li>세션 기반 인증을 JWT로 점진 전환</li>
+					<li>RSA(KMS) 기반 JWT 도입(공개키 검증으로 인증 흐름 단순화)</li>
+					<li>단말/모바일 앱 인증 흐름 정리 및 통합</li>
 				</ul>
 			</Card>
-			<Card
-				heading='⚙️ 배치 / 안정성'
-				imageClass='h-12 w-auto md:-left-28'
-			>
+
+			<Card heading='⚙️ 배치 / 안정성' imageClass='h-12 w-auto md:-left-28'>
 				<ul class='ml-4 list-disc text-muted-foreground'>
-					<li>K8s Airflow 배치 구조 정리</li>
-					<li>배치 실패율 30% → 5% 수준으로 개선</li>
-					<li>SLA miss 20회/일 → 3회/일 수준으로 감소</li>
+					<li>K8s + Airflow 배치 구조 정리</li>
+					<li>실패/지연이 잦은 작업은 원인 분석 후 구조 개선</li>
+					<li>장애 시 서비스 영향 범위를 줄이기 위해 실행 단위/자원 분리</li>
 				</ul>
 			</Card>
-			<Card
-				heading='📊 모니터링'
-				imageClass='h-12 w-auto md:-left-28'
-			>
+
+			<Card heading='📊 모니터링' imageClass='h-12 w-auto md:-left-28'>
 				<ul class='ml-4 list-disc text-muted-foreground'>
 					<li>Datadog APM 및 로그 수집 환경 구축</li>
-					<li>개인정보 Marker 기반 로그 필터링 적용</li>
-					<li>운영 대응 시간 1시간 → 30분 수준으로 단축</li>
+					<li>개인정보 로그는 Marker 기반으로 분리/필터링</li>
+					<li>장애 확인과 원인 추적에 걸리는 시간을 줄이는 방향으로 개선</li>
 				</ul>
 			</Card>
 		</Section>
+
 		{
 			allPostsByDate.length > 0 && (
 				<Section title='Posts'>
@@ -170,128 +181,157 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 			<Card
 				heading='GS 리테일'
 				subheading='물류DX | 매니저 | 백엔드'
-				date='Oct 2022 - Now'
+				date='Oct 2022 - Nov 2025'
 				imagePath='/src/assets/logo_gs_lg-removebg-preview.png'
-				altText='Lorem, ipsum dolor sit'
+				altText='GS Retail'
 				imageClass='h-12 w-auto md:-left-28'
 			>
-				<ul class='ml-4 list-disc text-muted-foreground space-y-4'>
+				<ul class='ml-4 list-disc space-y-4 text-muted-foreground'>
 					<li>
-						<b>RSA(KMS) 기반 JWT 인증 체계 구축</b>
-						<ul class="ml-6 list-disc">
-							<li>세션 클러스터링 기반 인증 구조가 단말 수 증가에 따라 확장성과 운영 부담이 커짐</li>
-							<li>RSA(KMS) 기반 JWT 인증 도입, 공개키 검증 구조로 인증 서버 의존도 제거</li>
-							<li>전국 약 18,000대 단말 및 우리동네GS 앱 인증 구조 통합, 로그인 응답 1초 이내로 운영</li>
+						<b>우리동네GS 앱 택배 서비스 연동 (2023.11–2024.12)</b>
+						<ul class='ml-6 list-disc'>
+							<li>역할: 백엔드 설계/개발</li>
+							<li>
+								기술: Java, REST API, JWT, KMS(RSA/AES) / Spring Boot 3, Kubernetes, ElastiCache,
+								Aurora Postgres, Datadog
+							</li>
+							<li>API별 인증/인가를 JWT 기준으로 정리해 접근 통제를 명확히 함</li>
+							<li>RSA(KMS) 기반 JWT를 설계해 공개키 검증 방식으로 인증 흐름을 단순화</li>
+							<li>주소록, 쿠폰(등록/조회/사용/선물) 기능 개발</li>
+							<li>웹뷰에서도 인증이 끊기지 않도록 세션 기반 흐름에 JWT를 접목</li>
+							<li>우리동네GS 앱 오프쇼어 개발자와 연동 이슈를 조율하며 개발</li>
 						</ul>
 					</li>
 
 					<li>
-						<b>IDC → AWS 클라우드 전환</b>
-						<ul class="ml-6 list-disc">
-							<li>IDC 환경에서 고정 비용과 DB 라이선스 비용 부담이 지속적으로 증가</li>
-							<li>EDB → Aurora PostgreSQL 마이그레이션, 비표준 쿼리 정리</li>
-							<li>연 운영비 5억 → 2억 수준 절감, 택배 서비스 흑자 전환에 기여</li>
+						<b>방문택배 API · Batch 구축 (2024.03–2024.10)</b>
+						<ul class='ml-6 list-disc'>
+							<li>역할: API/Batch 개발</li>
+							<li>
+								기술: Java, Python, REST API, JWT, Spring Event / Spring Batch 5, Kubernetes, Aurora
+								Postgres, MWAA(Airflow), Datadog
+							</li>
+							<li>오픈 초기 일 1,000건 수준의 접수를 처리할 수 있도록 흐름 구성</li>
+							<li>
+								<code>@TransactionalEventListener(AFTER_COMMIT)</code>로 상태 업데이트 이후 알림톡
+								발송(정합성 우선)
+							</li>
+							<li>운송장 상태별 로그를 Datadog으로 수집해 누락/이상 구간을 추적 가능하게 개선</li>
+							<li>MWAA(Airflow) DAG 적용 및 배치 자원 튜닝</li>
 						</ul>
 					</li>
 
 					<li>
-						<b>알림톡 에이전트 통합</b>
-						<ul class="ml-6 list-disc">
-							<li>에이전트와 DB 테이블이 과도하게 분산되어 운영·장애 분석이 어려웠음</li>
-							<li>미사용 에이전트 및 테이블 정리, 에이전트 통합</li>
-							<li>에이전트 16 → 8, EC2 자원 약 50% 절감, 장애 분석 시간 감소</li>
+						<b>IDC → AWS 이관 (2023.03–2024.02)</b>
+						<ul class='ml-6 list-disc'>
+							<li>역할: MWAA(Airflow) 구성, Oracle SQL → ANSI SQL 전환</li>
+							<li>기술: Java, Python, SQL, CI/CD / ECR, Bamboo, EDB, Aurora Postgres, MyBatis</li>
+							<li>Airflow API로 커밋 시 이미지 태그가 갱신되도록 CI/CD 흐름 구성</li>
+							<li>5개 서비스 쿼리를 점진적으로 ANSI SQL로 전환(운영 중단 최소화)</li>
 						</ul>
 					</li>
 
 					<li>
-						<b>헥사고날 아키텍처 + SpringEvent 도입</b>
-						<ul class="ml-6 list-disc">
-							<li>하나의 프로젝트에 우리동네GS, 방문택배, 물류센터 로직이 한 흐름에 묶여 변경·확장이 어려웠음</li>
-							<li>도메인/어댑터/인프라 분리, 이벤트 기반 처리 구조 도입</li>
-							<li>방문택배 서비스 오픈(일 3,000건+), API 응답 2초 이내로 운영</li>
-						</ul>
-					</li>
-
-					<li>
-						<b>Datadog 로그 수집 체계 구축</b>
-						<ul class="ml-6 list-disc">
-							<li>장애 발생 시 로그 파악에 시간이 오래 걸렸음</li>
-							<li>로그 통합 조회 환경 구성, 개인정보 Marker 기반 필터링 적용</li>
-							<li>운영 대응 시간 1시간 → 20분 수준으로 단축</li>
+						<b>Datadog 로그 수집 체계 구축 (2024.11–2024.12)</b>
+						<ul class='ml-6 list-disc'>
+							<li>역할: 로그 포맷 표준화, 개인정보 로그 핸들링</li>
+							<li>기술: Java / Spring Boot 3, Datadog, Marker</li>
+							<li>CUD 로그를 정의하고 Datadog으로 전송</li>
+							<li>전체 API에 Filter를 적용해 요청 정보를 일관되게 수집</li>
+							<li>개인정보 포함 로그는 Marker로 분리해 미전달 처리</li>
 						</ul>
 					</li>
 				</ul>
 			</Card>
+
 			<Card
 				heading='GS 네트웍스'
-				subheading='시스템파트 | 매니저 | 백엔드'
+				subheading='생활플랫폼팀 | 매니저 | 백엔드'
 				date='Aug 2021 - Oct 2022'
 				imagePath='/src/assets/logo_gs_lg-removebg-preview.png'
-				altText='Lorem, ipsum dolor sit'
+				altText='GS Networks'
 				imageClass='h-12 w-auto md:-left-28'
 			>
-				<ul class='ml-4 list-disc text-muted-foreground space-y-4'>
+				<ul class='ml-4 list-disc space-y-4 text-muted-foreground'>
 					<li>
-						<b>제휴사 RESTful API 개발 및 운영</b>
-						<ul class="ml-6 list-disc">
-							<li>제휴사 증가로 요구사항 대응과 연동 방식이 제각각이라 운영 효율이 낮았음</li>
-							<li>제휴사 요구사항 정리 후 API 통합 및 신규 개발, 문서화 정비</li>
-							<li>신규 제휴사 30곳 오픈, 50곳 이상 운영, 일 처리량 1,000건 → 10,000건 수준 증가</li>
+						<b>제휴사 RESTful API 개발·운영</b>
+						<ul class='ml-6 list-disc'>
+							<li>역할: 제휴사 커뮤니케이션 및 개발</li>
+							<li>
+								기술: Java, JWT, Redis, REST API / Spring Boot, Docker Swarm, Pinpoint, Oracle, EDB
+							</li>
+							<li>토스/네이버/카카오/당근 등 제휴사와 협업해 택배 서비스 제공</li>
+							<li>신규 제휴사 25곳 오픈, 50곳 이상 운영</li>
+							<li>상태 전송 배치(약 20개)를 Spring Batch Flow로 통합해 운영 포인트를 줄임</li>
 						</ul>
 					</li>
 
 					<li>
-						<b>K8s Airflow 배치 시스템 경량화</b>
-						<ul class="ml-6 list-disc">
-							<li>DAG 수 증가와 짧은 스케줄로 배치 실패와 SLA miss가 빈번하게 발생</li>
-							<li>불필요 DAG 제거, 스케줄 통합, 일부 작업 Spring Batch 전환</li>
-							<li>DAG 270 → 180, 배치 실패율 40% → 15%, SLA miss 20회/일 → 10회/일</li>
+						<b>대한통운 API 연동 및 장애 대응</b>
+						<ul class='ml-6 list-disc'>
+							<li>배송조회 API Timeout 이슈 분석 및 대응</li>
+							<li>API 버전 업 협의/적용 후 레거시 API를 Open API로 전환</li>
+							<li>인증 토큰을 Redis + DB 이중화로 관리해 캐시 장애에도 서비스 유지</li>
+							<li>Retry/Recover 적용, Redis 장애 시 DB 조회로 대체</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>IDC → IDC 차세대 이관(배치 아키텍처 개선)</b>
+						<ul class='ml-6 list-disc'>
+							<li>Scheduled 기반 작업을 Airflow(MWAA) 기반으로 전환해 무중단 배포 흐름 구성</li>
+							<li>
+								Spring Batch 트리거로 KubernetesPodOperator 도입을 제안해 Job 단위 실행으로 개선
+							</li>
+							<li>차세대 오픈 이후 API/배치 장애를 분석·해결하며 운영 안정화</li>
+							<li>문서 없는 API를 디버깅해 문서화, try-with-resources로 메모리 누수 개선</li>
 						</ul>
 					</li>
 				</ul>
 			</Card>
+
 			<Card
 				heading='마인드패스'
 				subheading='대표 | PM'
 				date='Dec 2018 - Jan 2021'
 				imagePath='/src/assets/mindpass.png'
-				altText='Lorem, ipsum dolor sit'
+				altText='Mindpass'
 				imageClass='h-7 w-auto md:-left-28'
 			>
-				<ul class='ml-4 list-disc text-muted-foreground space-y-4'>
+				<ul class='ml-4 list-disc space-y-4 text-muted-foreground'>
 					<li>
-						<b>창업 및 초기 활동</b>
-						<ul class="ml-6 list-disc">
-							<li>대학교 동기 2명과 창업</li>
+						<b>AI 기반 MVP 개발</b>
+						<ul class='ml-6 list-disc'>
+							<li>GoogleNet 기반 한국어 OCR MVP 제작</li>
+							<li>의류 분류 모델 MVP 개발 및 GPU(20 TFLOPS) 학습 환경 지원 수혜</li>
 						</ul>
 					</li>
 
 					<li>
-						<b>AI 기반 프로젝트</b>
-						<ul class="ml-6 list-disc">
-							<li>GoogleNet 기반 한국어 독화 MVP 제작</li>
-							<li>GoogleNet 기반 의류 분류 모델 MVP 제작 및 GPU 20TFlops 대여 수혜</li>
-							<li>치매 환자 낙상 방지 시스템 MVP 개발 → 건대 병원 파일럿 테스트 (특허 등록 지원)</li>
+						<b>치매 환자 낙상 방지 시스템 MVP</b>
+						<ul class='ml-6 list-disc'>
+							<li>Raspberry Pi 기반 프로토타입 구현</li>
+							<li>건국대학교 병원과 협업해 파일럿 테스트 진행(특허 지원 단계)</li>
 						</ul>
 					</li>
 
 					<li>
-						<b>투자 및 지원 수혜</b>
-						<ul class="ml-6 list-disc">
-							<li>5,000만원 투자 수혜 (기술혁신형창업기업지원사업, 기술보증기금)</li>
-							<li>3,000만원 투자 수혜 (위치 기반 메모 알람 서비스, 맞춤형성장지원프로그램, 대전TP)</li>
-						</ul>
-					</li>
-
-					<li>
-						<b>아웃소싱</b>
-						<ul class="ml-6 list-disc">
+						<b>외주 프로젝트</b>
+						<ul class='ml-6 list-disc'>
 							<li>DJI Framework 기반 Robomaster S1 콘텐츠 개발</li>
-							<li>CMS(강의 웹사이트) Backoffice RESTful API 개발</li>
+							<li>강의 웹사이트 CMS Backoffice RESTful API 개발</li>
+						</ul>
+					</li>
+
+					<li>
+						<b>지원/투자 수혜</b>
+						<ul class='ml-6 list-disc'>
+							<li>기술보증기금 등 지원 사업을 통해 자금/자원 확보 경험</li>
 						</ul>
 					</li>
 				</ul>
 			</Card>
+
 			<Card
 				heading='대한민국공군'
 				subheading='병장 | 만기전역 | 위성통신병'
@@ -315,11 +355,14 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 				altText='Lorem, ipsum dolor sit'
 				imageClass='h-16 w-auto md:-left-20'
 			>
-				<ul class='ml-4 list-disc text-muted-foreground space-y-4'>
+				<ul class='ml-4 list-disc space-y-4 text-muted-foreground'>
 					<li>
 						<b>학과 공용 웹 서버 구축 및 운영</b>
-						<ul class="ml-6 list-disc">
-							<li>전공 수업과 개인 프로젝트를 진행하기 위한 공용 서버 환경이 없어 학생들이 각자 로컬 환경에 의존하며 실습·과제 수행에 불편이 있었음</li>
+						<ul class='ml-6 list-disc'>
+							<li>
+								전공 수업과 개인 프로젝트를 진행하기 위한 공용 서버 환경이 없어 학생들이 각자 로컬
+								환경에 의존하며 실습·과제 수행에 불편이 있었음
+							</li>
 							<li>전교 학생을 위한 공용 웹 서버 구축 및 운영</li>
 							<li>개발·실습에 필요한 패키지 및 런타임 환경 설치·관리</li>
 							<li>관리되지 않던 BareMetal 서버를 Ubuntu 기반 실습 서버로 전환</li>
@@ -329,22 +372,24 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 
 					<li>
 						<b>네트워크 장애 대응</b>
-						<ul class="ml-6 list-disc">
+						<ul class='ml-6 list-disc'>
 							<li>학과 PC 네트워크 장애로 정상적인 수업 진행이 어려운 상황이 발생함</li>
-							<li>외주 업체와 협업하여 네트워크 스위치 루핑이 발생한 랜선을 추적·차단하여 장애 원인 제거</li>
+							<li>
+								외주 업체와 협업하여 네트워크 스위치 루핑이 발생한 랜선을 추적·차단하여 장애 원인
+								제거
+							</li>
 						</ul>
 					</li>
 
 					<li>
 						<b>창업 및 프로젝트</b>
-						<ul class="ml-6 list-disc">
+						<ul class='ml-6 list-disc'>
 							<li>마인드패스 창업</li>
 							<li>Raspberry Pi 기반 치매 환자 낙상 방지 시스템 MVP 제작</li>
 							<li>의료기관 협력 하에 실제 임상 환경에서 파일럿 테스트 진행</li>
 						</ul>
 					</li>
 				</ul>
-
 			</Card>
 			<Card
 				heading='대헌공업고등학교'
