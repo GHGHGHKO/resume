@@ -103,6 +103,31 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 			</div>
 		</section>
 
+		<Section title='About'>
+			<div class='space-y-4 text-muted-foreground'>
+				<p>
+					물류·택배 서비스에서 백엔드를 개발하고 운영해 왔습니다. 제가 일을 할 때 가장 크게 보는
+					기준은 "서비스가 멈추지 않게 만드는 것(가용성)"입니다.
+				</p>
+
+				<p>
+					인증은 세션 클러스터링 방식의 한계를 겪으면서, RSA(KMS) 기반 JWT로 점진 전환했습니다. 단말
+					수가 늘어도 인증 흐름이 흔들리지 않게 만드는 쪽에 초점을 맞췄습니다.
+				</p>
+
+				<p>
+					인프라 쪽은 IDC 환경에서 AWS로 넘어가는 과정을 겪었고, DB 마이그레이션과 배치 구조 정리도
+					같이 했습니다. 배포나 장애 대응이 특정 작업자에게 의존하지 않도록 구조를 정리하는 걸
+					선호합니다.
+				</p>
+
+				<p>
+					운영 중 이슈는 Datadog 로그/APM으로 빠르게 잡고, 임시 처방보다는 “다음에 같은 일이 안
+					나게” 정리하는 방식으로 해결해 왔습니다.
+				</p>
+			</div>
+		</Section>
+
 		<Section title='TL;DR'>
 			<Card heading='💰 비용 / 구조 정리' imageClass='h-12 w-auto md:-left-28'>
 				<div class='space-y-1 text-sm text-muted-foreground'>
