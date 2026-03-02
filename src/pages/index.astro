@@ -106,24 +106,25 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 		<Section title='About'>
 			<div class='space-y-4 text-muted-foreground'>
 				<p>
-					물류·택배 서비스에서 백엔드를 개발하고 운영해 왔습니다. 제가 일을 할 때 가장 크게 보는
-					기준은 "서비스가 멈추지 않게 만드는 것(가용성)"입니다.
+					대학 시절 창업(마인드패스)을 통해 AI 기반 서비스를 직접 만들어 보면서 개발에 본격적으로
+					뛰어들었습니다. 이후 물류·택배 백엔드 개발자로 커리어를 시작했습니다.
 				</p>
 
 				<p>
-					인증은 세션 클러스터링 방식의 한계를 겪으면서, RSA(KMS) 기반 JWT로 점진 전환했습니다. 단말
-					수가 늘어도 인증 흐름이 흔들리지 않게 만드는 쪽에 초점을 맞췄습니다.
+					GS 네트웍스에서 토스·네이버·카카오·당근 등 50개 이상의 제휴사와 연동하고 외부 API
+					장애를 직접 대응하면서, “서비스가 멈추지 않게 만드는 것(가용성)”이 저의 첫 번째 기준이
+					됐습니다.
 				</p>
 
 				<p>
-					인프라 쪽은 IDC 환경에서 AWS로 넘어가는 과정을 겪었고, DB 마이그레이션과 배치 구조 정리도
-					같이 했습니다. 배포나 장애 대응이 특정 작업자에게 의존하지 않도록 구조를 정리하는 걸
-					선호합니다.
+					GS 리테일에서는 IDC에서 AWS로 전환하는 과정에 함께하며, 인증 구조(세션 클러스터링 →
+					RSA/KMS 기반 JWT), 배치 안정화, Datadog 기반 모니터링 체계 구축까지 서비스 전반을
+					다뤘습니다. 배포나 장애 대응이 특정 작업자에게 의존하지 않도록 구조를 정리하는 걸 선호합니다.
 				</p>
 
 				<p>
-					운영 중 이슈는 Datadog 로그/APM으로 빠르게 잡고, 임시 처방보다는 “다음에 같은 일이 안
-					나게” 정리하는 방식으로 해결해 왔습니다.
+					이슈가 생기면 Datadog 로그/APM으로 빠르게 파악하고, 임시 처방보다 “다음에 같은 일이
+					안 나게” 정리하는 방식으로 해결해 왔습니다.
 				</p>
 			</div>
 		</Section>
@@ -215,11 +216,12 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
 							<li>오픈 초기 일 1,000건 접수를 처리할 수 있도록 API·배치 흐름 구성</li>
 							<li>
+								알림톡이 DB 반영 전에 발송되는 문제를 방지하고자,
 								<code class='rounded bg-muted px-1'>@TransactionalEventListener(AFTER_COMMIT)</code
-								>로 상태 업데이트 이후 알림톡 발송(정합성 우선)
+								>으로 커밋 이후에만 발송하도록 처리
 							</li>
 							<li>운송장 상태별 로그를 Datadog으로 수집해 누락/이상 구간을 추적 가능하게 개선</li>
-							<li>MWAA(Airflow) DAG 적용 및 배치 자원 튜닝</li>
+							<li>배치 실행 지연과 자원 낭비를 줄이고자 MWAA(Airflow) DAG 구조와 배치 자원을 튜닝</li>
 						</ul>
 					</li>
 
@@ -232,7 +234,7 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 							MWAA(Airflow) 구성 · Oracle SQL → ANSI SQL 전환 · Java / Python / SQL / CI/CD
 						</div>
 						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
-							<li>Airflow API로 커밋 시 이미지 태그가 갱신되도록 CI/CD 흐름 구성</li>
+							<li>수동 배포로 인한 실수와 작업 부담을 줄이고자, Airflow API로 커밋 시 이미지 태그가 자동 갱신되도록 CI/CD 흐름 구성</li>
 							<li>5개 서비스 쿼리를 점진적으로 ANSI SQL로 전환(운영 중단 최소화)</li>
 						</ul>
 					</li>
@@ -246,8 +248,8 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 							로그 포맷 표준화 / 개인정보 로그 핸들링 · Spring Boot 3 / Datadog / Marker
 						</div>
 						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
-							<li>CUD 로그를 정의하고 Datadog으로 전송</li>
-							<li>전체 API에 Filter를 적용해 요청 정보를 일관되게 수집</li>
+							<li>운영 중 데이터 변경 이력 추적이 어려웠던 문제를 해결하고자 CUD 로그 기준을 정의하고 Datadog으로 전송</li>
+							<li>API마다 로그 포맷이 달라 이슈 추적이 어려웠던 점을 개선하고자, 전체 API에 Filter를 적용해 요청 정보를 일관된 형식으로 수집</li>
 							<li>개인정보 포함 로그는 Marker로 분리해 미전달 처리</li>
 						</ul>
 					</li>
