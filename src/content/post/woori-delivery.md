@@ -136,31 +136,45 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 물류센터 시스템이 소비자 API를 호출하거나, 현장 장비가 백오피스 API를 호출하는 시도는
 비즈니스 코드에 도달하기 전에 Spring Security 레벨에서 차단됩니다.
 
-### 3. 고객 데이터 격리 — Object-Level Authorization
+### 3. 고객 데이터 격리 — Filter 기반 Object-Level Authorization
 
 시스템 격리와 별개로, **같은 시스템 내 고객 A가 고객 B의 데이터를 조회하지 못하도록**
-객체 수준 인가(Object-Level Authorization)를 Spring Security Method Security로 구현했습니다.
+객체 수준 인가를 Controller가 아닌 **Security Filter** 단계에서 처리했습니다.
+
+Controller에 `@PreAuthorize`를 붙이는 방식은 어노테이션 누락 시 보안 홀이 생기는 반면,
+Filter에서 처리하면 **모든 요청이 비즈니스 코드에 도달하기 전에 반드시 통과**해야 하므로 누락 위험이 없습니다.
 
 ```java
-// 접수 조회 API — 소유자 검증
-@PreAuthorize("@deliveryAuthz.isOwner(authentication, #deliveryId)")
-@GetMapping("/api/customer/deliveries/{deliveryId}")
-public DeliveryResponse getDelivery(@PathVariable Long deliveryId) {
-    return deliveryService.getById(deliveryId);
-}
+// Security Filter — 소유자 검증 (Controller 도달 전 처리)
+public class CustomerResourceAuthorizationFilter extends OncePerRequestFilter {
 
-// 인가 컴포넌트 — 비즈니스 코드와 완전 분리
-@Component("deliveryAuthz")
-public class DeliveryAuthorizationComponent {
-    public boolean isOwner(Authentication auth, Long deliveryId) {
-        String customerId = extractCustomerId(auth); // JWT sub 클레임
-        return deliveryRepository.existsByIdAndCustomerId(deliveryId, customerId);
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain chain) throws IOException, ServletException {
+
+        String customerId = extractCustomerIdFromJwt(request); // JWT sub 클레임
+        String resourceOwnerId = resolveOwnerIdFromPath(request); // 경로에서 리소스 소유자 추출
+
+        if (resourceOwnerId != null && !customerId.equals(resourceOwnerId)) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN);
+            return;
+        }
+
+        chain.doFilter(request, response);
     }
 }
+
+// SecurityFilterChain에 등록
+http.addFilterBefore(
+    customerResourceAuthorizationFilter,
+    AuthorizationFilter.class
+);
 ```
 
-- 인가 로직이 비즈니스 코드와 분리되어, 새 API 추가 시 `@PreAuthorize` 선언만으로 동일한 보안 정책 적용 가능
-- JWT의 `sub` 클레임(customerId)과 DB의 리소스 소유자를 대조해 타 고객 접근을 구조적으로 차단
+- Controller·Service 코드에 인가 로직이 전혀 섞이지 않아 비즈니스 코드가 단순해짐
+- 새 API가 추가되어도 Filter가 일괄 적용되므로 보안 정책 누락 불가
+- JWT의 `sub` 클레임(customerId)과 요청 경로의 리소스 소유자를 Filter 단계에서 대조해 타 고객 접근을 구조적으로 차단
 
 ### 4. 18,000대 현장 장비 인증
 
