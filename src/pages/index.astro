@@ -41,7 +41,7 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 
 			<div class='flex flex-col items-center gap-y-4'>
 				<h1 class='text-3xl font-bold'>
-					물류·택배 시스템을 운영하며 인증, 배치를 개선해 온 백엔드 엔지니어 고형규입니다.
+					물류·택배에서 2천만 고객 CRM 플랫폼으로, 도메인을 넓혀온 백엔드 엔지니어 고형규입니다.
 				</h1>
 				<div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
 					<Label title='GS 리테일'>
@@ -123,8 +123,10 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 				</p>
 
 				<p>
-					이슈가 생기면 Datadog 로그/APM으로 빠르게 파악하고, 임시 처방보다 “다음에 같은 일이
-					안 나게” 정리하는 방식으로 해결해 왔습니다.
+					이후 CRM팀으로 이동하며 고객 약 2천만 명 규모의 통합 회원 플랫폼으로 도메인을 넓혔습니다.
+					차세대 오픈 직후 투입돼 중단됐던 배치를 복구하고 개인정보 관련 버그를 수정하면서, 이슈는
+					Datadog 로그/APM으로 빠르게 파악하고 임시 처방보다 “다음에 같은 일이 안 나게” 정리하는
+					방식으로 해결해 왔습니다.
 				</p>
 			</div>
 		</Section>
@@ -162,6 +164,15 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 					<div>장애 확인과 원인 추적에 걸리는 시간을 줄이는 방향으로 개선</div>
 				</div>
 			</Card>
+
+			<Card heading='🏢 CRM / 고객 플랫폼' imageClass='h-12 w-auto md:-left-28'>
+				<div class='space-y-1 text-sm text-muted-foreground'>
+					<div>차세대 CRM 오픈 직후 투입 — 6개월 이상 중단된 운영 배치 3종 스케줄 재설계 및 복구</div>
+					<div>고객 등급 일괄변경 API 설계 (1회 최대 100건, Partial Success 패턴)</div>
+					<div>개인정보 오동기화 버그 수정 — 탈퇴 후 재가입 시 이전 정보 덮어쓰기 (월 약 2건)</div>
+					<div>MCP 기반 AI 업무 자동화 도입 제안 (기획·개발팀 대상)</div>
+				</div>
+			</Card>
 		</Section>
 
 		{
@@ -181,13 +192,49 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 		<Section title='Experience'>
 			<Card
 				heading='GS 리테일'
-				subheading='물류DX | 매니저 | 백엔드'
-				date='Oct 2022 - Nov 2025'
+				subheading='물류DX · CRM | 매니저 | 백엔드'
+				date='Oct 2022 - 현재'
 				imagePath='/src/assets/logo_gs_lg-removebg-preview.png'
 				altText='GS Retail'
 				imageClass='h-12 w-auto md:-left-28'
 			>
 				<ul class='space-y-7 text-muted-foreground'>
+					<li>
+						<div class='font-semibold text-foreground'>
+							차세대 통합 회원 플랫폼 안정화 (CRM팀)
+							<span class='ml-2 text-sm text-muted-foreground'>(2024.11–현재)</span>
+						</div>
+						<div class='mt-1 text-sm'>
+							API/배치 개발 · Java / Spring Boot / PostgreSQL / Redis / Bamboo
+						</div>
+						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
+							<li>
+								차세대 플랫폼 오픈 직후 투입돼, 6개월 이상 미실행 상태였던 운영 배치 3종
+								(임직원 비활성화·메일 발송·PMS 결과 반영)을 단순 재기동 없이 스케줄 재설계와
+								데이터 정합성 검토를 포함해 복구
+							</li>
+							<li>
+								개인정보 보호 대응으로 회원 로그인 이력 조회 API 설계·개발 (일 평균 약 200건)
+								— 고객이 직접 본인 이력을 확인하는 보안·컴플라이언스 요건 반영
+							</li>
+							<li>
+								고객 등급 일괄변경 API 설계·개발 — 1회 최대 100건·6개 테이블 트랜잭션 처리,
+								Validation 실패 건은 Partial Success 패턴으로 미처리 건을 응답에 포함해 호출
+								측 재처리 가능하게 설계
+							</li>
+							<li>
+								GS 네트웍스 연동 개인정보 오동기화 수정 — 탈퇴 후 재가입 시 이전 정보
+								덮어쓰기(월 약 2건, 개인정보 보호법 리스크 직결)를 외부 연동 플로우 데이터
+								정합성 검토로 해결
+							</li>
+							<li>GS Pay 공유결제 구성원 닉네임 변경 버그 운영 핫픽스 대응</li>
+							<li>
+								MCP(Model Context Protocol) 기반 AI 업무 자동화 도입을 기획·개발팀에 제안
+								— 반복 업무 자동화로 팀 업무 효율화 방향 제시
+							</li>
+						</ul>
+					</li>
+
 					<li>
 						<div class='font-semibold text-foreground'>
 							우리동네GS 앱 택배 서비스 연동
