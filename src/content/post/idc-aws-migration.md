@@ -2,7 +2,7 @@
 title: "IDC → AWS 이관"
 description: "물류 서비스 5개를 IDC에서 AWS로 이관했습니다. Oracle에서 ANSI SQL 전환, MWAA CI/CD 자동화로 수동 배포 부담과 운영 중단 위험을 낮췄습니다."
 publishDate: "2023-03-01"
-tags: ["aws", "airflow", "sql", "ci-cd", "java", "python"]
+tags: ["aws", "aurora-postgresql", "mwaa", "airflow", "sql", "ci-cd", "java", "python"]
 ---
 
 ## 개요
@@ -13,15 +13,15 @@ tags: ["aws", "airflow", "sql", "ci-cd", "java", "python"]
 - **회사**: GS리테일 / 물류DX팀
 - **기간**: 2023.03 – 2024.02
 - **역할**: MWAA 구성, Oracle SQL → ANSI SQL 전환, CI/CD 자동화
-- **스택**: Java, Python, SQL, MWAA(Airflow), CI/CD
+- **스택**: Java, Python, SQL, AWS MWAA(Airflow), Aurora PostgreSQL, CI/CD
 
 ---
 
 ## 배경
 
 IDC 환경은 하드웨어 노후화, 운영비 증가, 배포 절차의 복잡성 등의 문제가 있었습니다.
-AWS로 전환하면서 DB도 Oracle에서 Aurora PostgreSQL로 변경됐고, 이에 맞춰 Oracle 전용 SQL 문법을 ANSI SQL로 전환해야 했습니다.
-동시에 배포 자동화 수준을 높여 수동 작업과 그로 인한 실수를 줄이는 것이 목표였습니다.
+AWS로 전환하면서 DB도 Oracle에서 **Aurora PostgreSQL**로 변경됐고, 이에 맞춰 Oracle 전용 SQL 문법을 ANSI SQL로 전환해야 했습니다.
+배치 오케스트레이션은 **AWS MWAA(Amazon Managed Workflows for Apache Airflow)** 로 전환해, 배포 자동화 수준을 높여 수동 작업과 그로 인한 실수를 줄이는 것이 목표였습니다.
 
 ---
 

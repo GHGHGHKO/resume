@@ -2,7 +2,7 @@
 title: "IDC → IDC 차세대 이관 (배치 개선)"
 description: "Scheduled 기반 배치를 Airflow(MWAA)와 KubernetesPodOperator 구조로 전환해 무중단 배포와 메모리 누수 개선으로 운영을 안정화했습니다."
 publishDate: "2021-08-01"
-tags: ["java", "airflow", "kubernetes", "spring-batch", "python"]
+tags: ["java", "aws", "airflow", "kubernetes", "spring-batch", "python"]
 ---
 
 ## 개요

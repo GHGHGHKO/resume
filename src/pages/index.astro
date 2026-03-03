@@ -165,8 +165,18 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 				</div>
 			</Card>
 
-			<Card heading='🏢 CRM / 고객 플랫폼' imageClass='h-12 w-auto md:-left-28'>
+			<Card heading='🚚 택배 플랫폼' imageClass='h-12 w-auto md:-left-28'>
+			<div class='space-y-1 text-sm text-muted-foreground'>
+				<div>택배 Backend Monorepo — 6개 시스템 + 전국 18,000대 장비 공통 백엔드, 전체 약 135만 건/day 처리</div>
+				<div>방문택배(api-gspostbox) P95 30ms 이하 · 에러율 0.1% 미만 안정 운영</div>
+				<div>봉투 암호화 JWE(KMS) + Spring Security로 시스템 간 API 완전 격리</div>
+				<div>오픈 초기 일 1,000건 → 현재 일 최대 120만 건 처리로 성장</div>
+			</div>
+		</Card>
+
+		<Card heading='🏢 CRM / 고객 플랫폼' imageClass='h-12 w-auto md:-left-28'>
 				<div class='space-y-1 text-sm text-muted-foreground'>
+					<div>인증 1,200 req/s · 회원 498 req/s · Redis 5,500 req/s — 에러율 0.1% 미만, 고객 2천만 명 규모 안정 운영</div>
 					<div>차세대 CRM 오픈 직후 투입 — 6개월 이상 중단된 운영 배치 3종 스케줄 재설계 및 복구</div>
 					<div>고객 등급 일괄변경 API 설계 (1회 최대 100건, Partial Success 패턴)</div>
 					<div>개인정보 오동기화 버그 수정 — 탈퇴 후 재가입 시 이전 정보 덮어쓰기 (월 약 2건)</div>
@@ -209,6 +219,10 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 						</div>
 						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
 							<li>
+								인증 서비스 최대 1,200 req/s · 회원 서비스 498 req/s 처리, P99 각각 7.81ms / 28.7ms 유지 —
+								Redis 5,500 req/s · PostgreSQL 3,200 req/s 규모의 데이터 레이어를 에러율 0.1% 미만으로 안정 운영
+							</li>
+							<li>
 								차세대 플랫폼 오픈 직후 투입돼, 6개월 이상 미실행 상태였던 운영 배치 3종
 								(임직원 비활성화·메일 발송·PMS 결과 반영)을 단순 재기동 없이 스케줄 재설계와
 								데이터 정합성 검토를 포함해 복구
@@ -245,6 +259,7 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 						</div>
 						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
 							<li>우리동네GS(WOODONGS) 연동을 계기로 택배 서비스 backend monorepo 신규 설계 — 인증·인가·비즈니스 레이어 통합, 이후 물류센터·택배홈페이지·GSRETAIL·BACKOFFICE·전국 18,000대 택배장비가 동일 저장소 사용</li>
+							<li>전체 택배 플랫폼 약 135만 건/day 처리 (방문택배 120만 + 우리동네GS·물류센터 등 15만) — 방문택배 기준 P95 30ms 이하, 에러율 0.1% 미만</li>
 							<li>봉투 암호화(Envelope Encryption) 기반 JWE로 Stateless 유지 — KMS DEK 관리로 페이로드 암호화와 키 보안 동시 확보</li>
 							<li>Spring Security로 6개 시스템 간 API 완전 격리 — Security Filter에서 시스템·고객 인가를 일괄 처리해 비즈니스 코드 도달 전 차단</li>
 							<li>Filter 기반 Object-Level Authorization — 고객 A가 고객 B의 개인정보를 조회할 수 없도록 Controller가 아닌 Filter 단계에서 소유자 검증</li>
@@ -261,7 +276,7 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 							API/Batch 개발 · Java, Python / Spring Batch 5 / MWAA(Airflow) / Datadog
 						</div>
 						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
-							<li>오픈 초기 일 1,000건 접수를 처리할 수 있도록 API·배치 흐름 구성</li>
+							<li>오픈 초기 일 1,000건 → 현재 일 최대 120만 건 요청 안정 처리, P95 레이턴시 30ms 이하, 500 에러율 0.1% 미만 유지</li>
 							<li>
 								알림톡이 DB 반영 전에 발송되는 문제를 방지하고자,
 								<code class='rounded bg-muted px-1'>@TransactionalEventListener(AFTER_COMMIT)</code
@@ -278,7 +293,7 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 							<span class='ml-2 text-sm text-muted-foreground'>(2023.03–2024.02)</span>
 						</div>
 						<div class='mt-1 text-sm'>
-							MWAA(Airflow) 구성 · Oracle SQL → ANSI SQL 전환 · Java / Python / SQL / CI/CD
+							MWAA(Airflow) 구성 · Oracle SQL → ANSI SQL 전환 · Java / Python / SQL / AWS MWAA / Aurora PostgreSQL / CI/CD
 						</div>
 						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
 							<li>수동 배포로 인한 실수와 작업 부담을 줄이고자, Airflow API로 커밋 시 이미지 태그가 자동 갱신되도록 CI/CD 흐름 구성</li>
