@@ -1,6 +1,6 @@
 ---
 title: "차세대 통합 회원 플랫폼 안정화"
-description: "차세대 CRM 오픈 직후 투입돼 6개월 이상 중단된 배치 복구·API 개발·개인정보 버그 수정을 통해 고객 2천만 명 규모 플랫폼 안정화에 기여했습니다. 인증 서비스 1,200 req/s, 회원 서비스 498 req/s, Redis 5,500 req/s 규모의 데이터 레이어를 에러율 0.1% 미만으로 운영 중입니다."
+description: "차세대 CRM 오픈 직후 투입돼 배치 복구·API 개발·개인정보 버그 수정으로 고객 2천만 명 규모 플랫폼을 안정화했습니다. 인증 1,200 req/s · Redis 5,500 req/s, 에러율 0.1% 미만."
 publishDate: "2024-11-01"
 tags: ["java", "spring-boot", "postgresql", "redis", "crm"]
 ---
