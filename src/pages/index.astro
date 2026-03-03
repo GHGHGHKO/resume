@@ -132,6 +132,25 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 		</Section>
 
 		<Section title='TL;DR'>
+			<Card heading='🚚 택배 플랫폼' imageClass='h-12 w-auto md:-left-28'>
+				<div class='space-y-1 text-sm text-muted-foreground'>
+					<div>택배 Backend Monorepo — 6개 시스템 + 전국 18,000대 장비 공통 백엔드, 전체 약 135만 건/day 처리</div>
+					<div>방문택배(api-gspostbox) P95 30ms 이하 · 에러율 0.1% 미만 안정 운영</div>
+					<div>봉투 암호화 JWE(KMS) + Spring Security로 시스템 간 API 완전 격리</div>
+					<div>오픈 초기 일 1,000건 → 현재 일 최대 120만 건 처리로 성장</div>
+				</div>
+			</Card>
+
+			<Card heading='🏢 CRM / 고객 플랫폼' imageClass='h-12 w-auto md:-left-28'>
+				<div class='space-y-1 text-sm text-muted-foreground'>
+					<div>인증 1,200 req/s · 회원 498 req/s · Redis 5,500 req/s — 에러율 0.1% 미만, 고객 2천만 명 규모 안정 운영</div>
+					<div>차세대 CRM 오픈 직후 투입 — 6개월 이상 중단된 운영 배치 3종 스케줄 재설계 및 복구</div>
+					<div>고객 등급 일괄변경 API 설계 (1회 최대 100건, Partial Success 패턴)</div>
+					<div>개인정보 오동기화 버그 수정 — 탈퇴 후 재가입 시 이전 정보 덮어쓰기 (월 약 2건)</div>
+					<div>MCP 기반 AI 업무 자동화 도입 제안 (기획·개발팀 대상)</div>
+				</div>
+			</Card>
+
 			<Card heading='💰 비용 / 구조 정리' imageClass='h-12 w-auto md:-left-28'>
 				<div class='space-y-1 text-sm text-muted-foreground'>
 					<div>EDB → Aurora PostgreSQL 전환(쿼리/운영 포인트 정리 포함)</div>
@@ -162,25 +181,6 @@ const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
 					<div>Datadog APM 및 로그 수집 환경 구축</div>
 					<div>개인정보 로그는 Marker 기반으로 분리/필터링</div>
 					<div>장애 확인과 원인 추적에 걸리는 시간을 줄이는 방향으로 개선</div>
-				</div>
-			</Card>
-
-			<Card heading='🚚 택배 플랫폼' imageClass='h-12 w-auto md:-left-28'>
-			<div class='space-y-1 text-sm text-muted-foreground'>
-				<div>택배 Backend Monorepo — 6개 시스템 + 전국 18,000대 장비 공통 백엔드, 전체 약 135만 건/day 처리</div>
-				<div>방문택배(api-gspostbox) P95 30ms 이하 · 에러율 0.1% 미만 안정 운영</div>
-				<div>봉투 암호화 JWE(KMS) + Spring Security로 시스템 간 API 완전 격리</div>
-				<div>오픈 초기 일 1,000건 → 현재 일 최대 120만 건 처리로 성장</div>
-			</div>
-		</Card>
-
-		<Card heading='🏢 CRM / 고객 플랫폼' imageClass='h-12 w-auto md:-left-28'>
-				<div class='space-y-1 text-sm text-muted-foreground'>
-					<div>인증 1,200 req/s · 회원 498 req/s · Redis 5,500 req/s — 에러율 0.1% 미만, 고객 2천만 명 규모 안정 운영</div>
-					<div>차세대 CRM 오픈 직후 투입 — 6개월 이상 중단된 운영 배치 3종 스케줄 재설계 및 복구</div>
-					<div>고객 등급 일괄변경 API 설계 (1회 최대 100건, Partial Success 패턴)</div>
-					<div>개인정보 오동기화 버그 수정 — 탈퇴 후 재가입 시 이전 정보 덮어쓰기 (월 약 2건)</div>
-					<div>MCP 기반 AI 업무 자동화 도입 제안 (기획·개발팀 대상)</div>
 				</div>
 			</Card>
 		</Section>
