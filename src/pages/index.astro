@@ -11,7 +11,7 @@ import { Image } from 'astro:assets'
 import astro from '../assets/else-where.jpg'
 
 import { sortMDByDate } from '@/utils'
-import { fetchTistoryTopPosts } from '../utils/post'
+import { fetchTistoryTopPosts, getAllPosts } from '../utils/post'
 
 const languages = ['java', 'kotlin', 'python', 'sql']
 const frontend = ['typescript', 'tauri']
@@ -30,8 +30,8 @@ const others = [
 ]
 
 const MAX_POSTS = 10
-const tistoryPosts = await fetchTistoryTopPosts()
-const allPostsByDate = sortMDByDate(tistoryPosts).slice(0, MAX_POSTS)
+const [tistoryPosts, portfolioPosts] = await Promise.all([fetchTistoryTopPosts(), getAllPosts()])
+const allPostsByDate = sortMDByDate([...tistoryPosts, ...portfolioPosts]).slice(0, MAX_POSTS)
 ---
 
 <PageLayout meta={{ title: 'Home' }}>
