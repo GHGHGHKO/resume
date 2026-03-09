@@ -1,8 +1,8 @@
 ---
-title: "Claude Desktop으로 원하는 파일 찾기"
-description: "파일명을 몰라도 자연어로 디렉터리를 탐색할 수 있습니다. Claude Desktop의 로컬 파일 접근 기능 활용법을 정리했습니다."
-publishDate: "2026-03-06"
-tags: ["claude", "claude-desktop", "ai", "productivity"]
+title: 'Claude Desktop으로 원하는 파일 찾기'
+description: '파일명을 몰라도 자연어로 디렉터리를 탐색할 수 있습니다. Claude Desktop의 로컬 파일 접근 기능 활용법을 정리했습니다.'
+publishDate: '2026-03-06'
+tags: ['claude', 'claude-desktop', 'ai', 'productivity']
 ---
 
 Claude Desktop의 **로컬 파일 접근** 기능을 활용하면, 파일명을 몰라도 원하는 내용을 자연어로 설명해서 디렉터리 안에서 원하는 파일을 찾을 수 있습니다.
@@ -38,12 +38,12 @@ Claude가 디렉터리 안의 파일들(Excel, PPT, DrawIO 등)을 탐색하여 
 
 ## 활용 예시
 
-| 항목 | 내용 |
-|------|------|
-| 제공한 디렉터리 | 특정 프로젝트 관련 업무 폴더 |
-| 요청 내용 | 두 시스템 간 DB 관계도 |
-| 탐색 대상 파일 | Excel, PPT, DrawIO 등 혼재 |
-| 결과 | 해당 내용을 담은 파일명 및 경로 반환 |
+| 항목            | 내용                                 |
+| --------------- | ------------------------------------ |
+| 제공한 디렉터리 | 특정 프로젝트 관련 업무 폴더         |
+| 요청 내용       | 두 시스템 간 DB 관계도               |
+| 탐색 대상 파일  | Excel, PPT, DrawIO 등 혼재           |
+| 결과            | 해당 내용을 담은 파일명 및 경로 반환 |
 
 ---
 

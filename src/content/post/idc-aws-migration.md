@@ -1,8 +1,8 @@
 ---
-title: "IDC → AWS 이관"
-description: "물류 서비스 5개를 IDC에서 AWS로 이관했습니다. Oracle에서 ANSI SQL 전환, MWAA CI/CD 자동화로 수동 배포 부담과 운영 중단 위험을 낮췄습니다."
-publishDate: "2023-03-01"
-tags: ["aws", "aurora-postgresql", "mwaa", "airflow", "sql", "ci-cd", "java", "python"]
+title: 'IDC → AWS 이관'
+description: '물류 서비스 5개를 IDC에서 AWS로 이관했습니다. Oracle에서 ANSI SQL 전환, MWAA CI/CD 자동화로 수동 배포 부담과 운영 중단 위험을 낮췄습니다.'
+publishDate: '2023-03-01'
+tags: ['aws', 'aurora-postgresql', 'mwaa', 'airflow', 'sql', 'ci-cd', 'java', 'python']
 ---
 
 ## 개요
@@ -53,13 +53,13 @@ AWS로 전환하면서 DB도 Oracle에서 **Aurora PostgreSQL**로 변경됐고,
 
 Oracle 전용 문법에서 주로 변환이 필요했던 항목들:
 
-| Oracle 문법 | ANSI SQL 대체 |
-|-------------|--------------|
-| `ROWNUM` | `LIMIT` / `FETCH FIRST n ROWS` |
-| `NVL()` | `COALESCE()` |
-| `DECODE()` | `CASE WHEN` |
-| `SYSDATE` | `CURRENT_TIMESTAMP` |
-| `(+)` 조인 | `LEFT/RIGHT JOIN` |
+| Oracle 문법 | ANSI SQL 대체                  |
+| ----------- | ------------------------------ |
+| `ROWNUM`    | `LIMIT` / `FETCH FIRST n ROWS` |
+| `NVL()`     | `COALESCE()`                   |
+| `DECODE()`  | `CASE WHEN`                    |
+| `SYSDATE`   | `CURRENT_TIMESTAMP`            |
+| `(+)` 조인  | `LEFT/RIGHT JOIN`              |
 
 - 한 번에 전환하지 않고 서비스 단위로 분리해 리스크를 낮췄습니다.
 - 각 전환 후 운영 중 쿼리 오류 여부를 모니터링하며 점진적으로 적용했습니다.

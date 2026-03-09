@@ -1,18 +1,18 @@
 ---
-title: "Datadog MCP 연동 가이드"
-description: "Claude Code에서 Datadog MCP를 연동해 자연어로 로그·메트릭·배포 상태를 조회하는 방법을 정리했습니다."
-publishDate: "2026-03-06"
-tags: ["claude", "mcp", "datadog", "devops", "ai"]
+title: 'Datadog MCP 연동 가이드'
+description: 'Claude Code에서 Datadog MCP를 연동해 자연어로 로그·메트릭·배포 상태를 조회하는 방법을 정리했습니다.'
+publishDate: '2026-03-06'
+tags: ['claude', 'mcp', 'datadog', 'devops', 'ai']
 ---
 
 ## 1. 개요
 
-| 항목 | 내용 |
-|------|------|
-| 도구 | Datadog MCP (Model Context Protocol) |
-| 목적 | Claude Code에서 Datadog 모니터링 데이터 조회 |
-| 적용 범위 | 전역 (모든 디렉터리에서 사용 가능) |
-| 설정 파일 | `~/.claude.json` |
+| 항목      | 내용                                         |
+| --------- | -------------------------------------------- |
+| 도구      | Datadog MCP (Model Context Protocol)         |
+| 목적      | Claude Code에서 Datadog 모니터링 데이터 조회 |
+| 적용 범위 | 전역 (모든 디렉터리에서 사용 가능)           |
+| 설정 파일 | `~/.claude.json`                             |
 
 ---
 
@@ -53,20 +53,20 @@ Claude Code의 MCP 서버는 `~/.claude.json` 파일에서 관리됩니다.
 
 ## 3. 사용 가능한 주요 기능
 
-| 기능 | 도구명 | 설명 |
-|------|--------|------|
-| 로그 검색 | `search_datadog_logs` | 서비스/환경별 로그 조회 |
-| 로그 분석 | `analyze_datadog_logs` | SQL로 로그 집계/분석 |
-| 메트릭 조회 | `get_datadog_metric` | 시계열 메트릭 데이터 조회 |
+| 기능            | 도구명                       | 설명                           |
+| --------------- | ---------------------------- | ------------------------------ |
+| 로그 검색       | `search_datadog_logs`        | 서비스/환경별 로그 조회        |
+| 로그 분석       | `analyze_datadog_logs`       | SQL로 로그 집계/분석           |
+| 메트릭 조회     | `get_datadog_metric`         | 시계열 메트릭 데이터 조회      |
 | 메트릭 컨텍스트 | `get_datadog_metric_context` | 메트릭 메타데이터 및 태그 확인 |
-| 메트릭 검색 | `search_datadog_metrics` | 사용 가능한 메트릭 목록 조회 |
-| 서비스 조회 | `search_datadog_services` | 등록된 서비스 목록 조회 |
-| 호스트 조회 | `search_datadog_hosts` | SQL로 호스트 인벤토리 조회 |
-| 이벤트 검색 | `search_datadog_events` | 이벤트 로그 조회 |
-| 모니터 검색 | `search_datadog_monitors` | 모니터 알림 상태 조회 |
-| 인시던트 조회 | `search_datadog_incidents` | 인시던트 목록 조회 |
-| 트레이스 조회 | `get_datadog_trace` | APM 트레이스 상세 조회 |
-| 스팬 검색 | `search_datadog_spans` | APM 스팬 검색 |
+| 메트릭 검색     | `search_datadog_metrics`     | 사용 가능한 메트릭 목록 조회   |
+| 서비스 조회     | `search_datadog_services`    | 등록된 서비스 목록 조회        |
+| 호스트 조회     | `search_datadog_hosts`       | SQL로 호스트 인벤토리 조회     |
+| 이벤트 검색     | `search_datadog_events`      | 이벤트 로그 조회               |
+| 모니터 검색     | `search_datadog_monitors`    | 모니터 알림 상태 조회          |
+| 인시던트 조회   | `search_datadog_incidents`   | 인시던트 목록 조회             |
+| 트레이스 조회   | `get_datadog_trace`          | APM 트레이스 상세 조회         |
+| 스팬 검색       | `search_datadog_spans`       | APM 스팬 검색                  |
 
 ---
 
@@ -98,12 +98,12 @@ sum:kubernetes_state.deployment.replicas_available{
 
 ### 결과 예시
 
-| 항목 | 값 |
-|------|----|
-| Desired Replicas | 2 |
-| Available Replicas | 2 |
-| Updated Replicas | 2 |
-| Unavailable Replicas | 0 |
+| 항목                 | 값  |
+| -------------------- | --- |
+| Desired Replicas     | 2   |
+| Available Replicas   | 2   |
+| Updated Replicas     | 2   |
+| Unavailable Replicas | 0   |
 
 > Unavailable = 0 → 정상 운영 중
 

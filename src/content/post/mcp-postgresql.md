@@ -1,8 +1,8 @@
 ---
-title: "Claude + PostgreSQL MCP 연동 가이드"
-description: "Claude Desktop / Claude Code에서 PostgreSQL MCP를 연결해 자연어로 DB를 조회하고 분석하는 방법을 정리했습니다."
-publishDate: "2026-03-06"
-tags: ["claude", "mcp", "postgresql", "database", "ai"]
+title: 'Claude + PostgreSQL MCP 연동 가이드'
+description: 'Claude Desktop / Claude Code에서 PostgreSQL MCP를 연결해 자연어로 DB를 조회하고 분석하는 방법을 정리했습니다.'
+publishDate: '2026-03-06'
+tags: ['claude', 'mcp', 'postgresql', 'database', 'ai']
 ---
 
 Claude Desktop / Claude Code에서 PostgreSQL MCP를 연결하면 자연어로 DB를 조회하고 분석할 수 있습니다.
@@ -25,28 +25,29 @@ Claude Desktop / Claude Code에서 PostgreSQL MCP를 연결하면 자연어로 D
 
 ```json
 {
-  "mcpServers": {
-    "postgres": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-postgres",
-        "postgresql://USERNAME:PASSWORD@HOST:PORT/DATABASE"
-      ]
-    }
-  }
+	"mcpServers": {
+		"postgres": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"@modelcontextprotocol/server-postgres",
+				"postgresql://USERNAME:PASSWORD@HOST:PORT/DATABASE"
+			]
+		}
+	}
 }
 ```
 
-| 항목 | 설명 |
-|------|------|
-| `USERNAME` | DB 계정명 |
-| `PASSWORD` | DB 비밀번호 |
-| `HOST` | DB 호스트 (IP 또는 도메인) |
-| `PORT` | 포트 (기본값: `5432`) |
-| `DATABASE` | 접속할 DB 이름 |
+| 항목       | 설명                       |
+| ---------- | -------------------------- |
+| `USERNAME` | DB 계정명                  |
+| `PASSWORD` | DB 비밀번호                |
+| `HOST`     | DB 호스트 (IP 또는 도메인) |
+| `PORT`     | 포트 (기본값: `5432`)      |
+| `DATABASE` | 접속할 DB 이름             |
 
 > **보안 주의**: `~/.claude.json`의 파일 권한을 `600`으로 설정하세요.
+>
 > ```bash
 > chmod 600 ~/.claude.json
 > ```
@@ -70,12 +71,12 @@ users 테이블 구조 보여줘
 
 ## 활용 예시
 
-| 요청 | 설명 |
-|------|------|
-| 테이블 목록 조회 | DB 구조 파악 |
-| 특정 조건 데이터 조회 | 데이터 분석 |
-| 집계 쿼리 요청 | 통계/현황 파악 |
-| ERD 관계 설명 요청 | 테이블 간 관계 이해 |
+| 요청                  | 설명                |
+| --------------------- | ------------------- |
+| 테이블 목록 조회      | DB 구조 파악        |
+| 특정 조건 데이터 조회 | 데이터 분석         |
+| 집계 쿼리 요청        | 통계/현황 파악      |
+| ERD 관계 설명 요청    | 테이블 간 관계 이해 |
 
 SQL을 직접 작성하지 않아도 자연어로 요청하면 Claude가 쿼리를 생성하고 결과를 반환합니다.
 
