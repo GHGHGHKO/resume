@@ -1,8 +1,8 @@
 ---
-title: "Datadog 로그 수집 체계 구축"
-description: "CUD 로그 기준 정의·전체 API Filter 표준화·개인정보 Marker 분리로 Datadog 기반 로그 체계를 구축하고 이슈 추적 시간을 단축했습니다."
-publishDate: "2024-11-01"
-tags: ["spring-boot", "datadog", "logging", "java"]
+title: 'Datadog 로그 수집 체계 구축'
+description: 'CUD 로그 기준 정의·전체 API Filter 표준화·개인정보 Marker 분리로 Datadog 기반 로그 체계를 구축하고 이슈 추적 시간을 단축했습니다.'
+publishDate: '2024-11-01'
+tags: ['spring-boot', 'datadog', 'logging', 'java']
 ---
 
 ## 개요

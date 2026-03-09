@@ -22,8 +22,8 @@ export async function fetchTistoryTopPosts(limit = 7) {
 			description: item.description ?? '',
 			publishDate: new Date(item.pubDate),
 			draft: false,
-			tags: ['Tistory'],
-		},
+			tags: ['Tistory']
+		}
 	}))
 }
 

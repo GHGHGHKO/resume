@@ -1,8 +1,8 @@
 ---
-title: "Jira / Confluence MCP 연동 가이드"
-description: "mcp-atlassian을 활용해 Claude Code에서 Jira 이슈 조회·생성, Confluence 문서 탐색을 자연어로 처리하는 방법을 정리했습니다."
-publishDate: "2026-03-06"
-tags: ["claude", "mcp", "jira", "confluence", "atlassian", "ai"]
+title: 'Jira / Confluence MCP 연동 가이드'
+description: 'mcp-atlassian을 활용해 Claude Code에서 Jira 이슈 조회·생성, Confluence 문서 탐색을 자연어로 처리하는 방법을 정리했습니다.'
+publishDate: '2026-03-06'
+tags: ['claude', 'mcp', 'jira', 'confluence', 'atlassian', 'ai']
 ---
 
 ## 개요
@@ -44,20 +44,20 @@ brew install uv
 
 ```json
 {
-  "mcpServers": {
-    "mcp-atlassian": {
-      "command": "uvx",
-      "args": ["mcp-atlassian"],
-      "env": {
-        "JIRA_URL": "https://jira.yourcompany.com",
-        "JIRA_USERNAME": "your_id@yourcompany.com",
-        "JIRA_PERSONAL_TOKEN": "<Jira Personal Access Token>",
-        "CONFLUENCE_URL": "https://confluence.yourcompany.com",
-        "CONFLUENCE_USERNAME": "your_id@yourcompany.com",
-        "CONFLUENCE_PERSONAL_TOKEN": "<Confluence Personal Access Token>"
-      }
-    }
-  }
+	"mcpServers": {
+		"mcp-atlassian": {
+			"command": "uvx",
+			"args": ["mcp-atlassian"],
+			"env": {
+				"JIRA_URL": "https://jira.yourcompany.com",
+				"JIRA_USERNAME": "your_id@yourcompany.com",
+				"JIRA_PERSONAL_TOKEN": "<Jira Personal Access Token>",
+				"CONFLUENCE_URL": "https://confluence.yourcompany.com",
+				"CONFLUENCE_USERNAME": "your_id@yourcompany.com",
+				"CONFLUENCE_PERSONAL_TOKEN": "<Confluence Personal Access Token>"
+			}
+		}
+	}
 }
 ```
 
@@ -67,10 +67,10 @@ brew install uv
 
 ## 설정 위치
 
-| 설정 파일 | 적용 범위 |
-|-----------|-----------|
+| 설정 파일                       | 적용 범위                              |
+| ------------------------------- | -------------------------------------- |
 | `~/.claude.json` → `mcpServers` | **전역** (모든 프로젝트에서 사용 가능) |
-| 프로젝트 루트 `.mcp.json` | 해당 프로젝트에서만 사용 |
+| 프로젝트 루트 `.mcp.json`       | 해당 프로젝트에서만 사용               |
 
 전역 설정을 권장합니다.
 

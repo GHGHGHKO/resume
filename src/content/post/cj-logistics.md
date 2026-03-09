@@ -1,8 +1,8 @@
 ---
-title: "대한통운 API 연동 및 장애 대응"
-description: "대한통운 배송조회 API Timeout 장애를 분석·대응하고, Redis+DB 이중화 인증 토큰 관리로 캐시 장애에도 서비스 무중단 운영 구조를 만들었습니다."
-publishDate: "2021-10-01"
-tags: ["java", "redis", "oracle", "spring-boot", "resilience"]
+title: '대한통운 API 연동 및 장애 대응'
+description: '대한통운 배송조회 API Timeout 장애를 분석·대응하고, Redis+DB 이중화 인증 토큰 관리로 캐시 장애에도 서비스 무중단 운영 구조를 만들었습니다.'
+publishDate: '2021-10-01'
+tags: ['java', 'redis', 'oracle', 'spring-boot', 'resilience']
 ---
 
 ## 개요
