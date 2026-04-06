@@ -5,9 +5,9 @@ export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
 	author: 'feelsgoodfrog',
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-	title: '자세한 내용은 여기를 눌러 확인하세요.',
+	title: '자세한 내용은 여기를 눌러 확인하세요',
 	// Meta property used as the default description meta property
-	description: '자세한 내용은 여기를 눌러 확인하세요.',
+	description: '자세한 내용은 여기를 눌러 확인하세요',
 	// HTML lang property, found in src/layouts/Base.astro L:18
 	lang: 'en-GB',
 	// Meta property, found in src/components/BaseHead.astro L:42
