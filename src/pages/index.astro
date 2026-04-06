@@ -576,10 +576,40 @@ const allPostsByDate = sortMDByDate([...tistoryPosts, ...portfolioPosts]).slice(
 				as='a'
 				heading='정보처리기사'
 				date='Dec 2025'
-				imagePath='/src/assets/about-astro.png'
 				altText='Lorem, ipsum dolor sit'
 				imageClass='h-11 w-auto md:-left-16'
 			/>
+		</Section>
+
+		<Section title='Talks & Teaching'>
+			<Card
+				heading='멘토링 및 사내 기술 발표'
+				subheading='Gen AI · Data Science · Python · Rust 기초'
+				date='2023 - 2025'
+				altText='ModuLabs & GSRetail'
+				imageClass='h-16 w-auto md:-left-20'
+			>
+				<ul class='space-y-7 text-muted-foreground'>
+					<li>
+						<div class='font-semibold text-foreground'>모두의연구소 - 코칭스터디 멘 (2023 - 2025)</div>
+						<div class='mt-1 text-sm'>누적 멘토링 인원 400명 이상</div>
+						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
+							<li>Gen AI, Data Science, Python 기초 과정 멘토링 진행</li>
+							<li>스터디 참여자 대상 개념 설명 및 실습 중심 코칭</li>
+							<li>비전공자 포함 다양한 레벨의 학습자 대상 교육 경험</li>
+						</ul>
+					</li>
+
+					<li>
+						<div class='font-semibold text-foreground'>Rust 찍어먹기 (2024)</div>
+						<div class='mt-1 text-sm'>사내 기술 발표</div>
+						<ul class='ml-4 mt-2 list-disc space-y-1 text-sm'>
+							<li>Rust를 부담 없이 찍어먹는 수준의 개념과 이해를 위해 작성</li>
+							<li>https://gsretail.tistory.com/39</li>
+						</ul>
+					</li>
+				</ul>
+			</Card>
 		</Section>
 
 		<Section title='Skills'>
