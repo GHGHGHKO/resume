@@ -1,6 +1,6 @@
 ---
 title: '방문택배 서비스 API·Batch 설계·구축'
-description: 'gspostbox.com 방문택배 서비스 API·배치를 구축했습니다. 일 최대 10,000건 이상 요청, P95 30ms 이하, 에러율 0.1% 미만으로 안정 운영 중입니다. 대한통운 운송장 연동 배치, 취소·반품 처리, 택배홈페이지 JWT 연동으로 세션 클러스터링 제거 기반을 마련했습니다.'
+description: 'gspostbox.com 방문택배 서비스 API·배치를 구축했습니다. 일 최대 1만 건 이상 요청, P95 30ms 이하, 에러율 0.1% 미만으로 안정 운영 중입니다. 대한통운 운송장 연동 배치, 취소·반품 처리, 택배홈페이지 JWT 연동으로 세션 클러스터링 제거 기반을 마련했습니다.'
 publishDate: '2024-03-01'
 tags: ['java', 'spring-batch', 'airflow', 'datadog', 'spring-boot', 'spring-security']
 ---
